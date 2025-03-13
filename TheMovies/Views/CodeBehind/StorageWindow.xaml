@@ -1,0 +1,15 @@
+﻿<Window x:Class="TheMovies.ViewModel.StorageWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TheMovies.ViewModel"
+        mc:Ignorable="d"
+        Title="StorageWindow" Height="450" Width="800">
+    <Grid>
+        <Button Content="OPRET" HorizontalAlignment="Center" Margin="0,68,0,0" VerticalAlignment="Top" Height="49" Width="133" Click="Button_Click"/>
+        <Button Content="ÆNDRE" HorizontalAlignment="Center" VerticalAlignment="Center" Height="49" Width="132"/>
+        <Button Content="SLET" HorizontalAlignment="Center" Margin="0,318,0,0" VerticalAlignment="Top" Height="49" Width="133"/>
+
+    </Grid>
+</Window>

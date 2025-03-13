@@ -1,0 +1,26 @@
+﻿<Window x:Class="ListBox.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ListBox"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="300" Width="400">
+    <Grid>
+        <ListBox ItemsSource="{Binding Persons}" SelectedItem="{Binding SelectedPerson}" HorizontalAlignment="Left" Height="142" Margin="24,23,0,0" VerticalAlignment="Top" Width="176">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding FirstName}" Foreground="Red"/>
+                        <TextBlock Text=" "/>
+                        <TextBlock Text="{Binding LastName}" Foreground="Green"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <TextBlock Text="{Binding SelectedPerson.FirstName, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Margin="251,23,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="34"/>
+        <TextBlock Text="{Binding SelectedPerson.LastName, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Margin="251,84,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="34"/>
+        <Button x:Name="BT_New" Content="New" Command="{Binding NewCmd}" CommandParameter="{Binding}" HorizontalAlignment="Left" Margin="24,187,0,0" VerticalAlignment="Top" Width="74"/>
+        <Button x:Name="BT_Delete" Content="Delete" Command="{Binding DeleteCmd}" CommandParameter="{Binding}" HorizontalAlignment="Left" Margin="126,187,0,0" VerticalAlignment="Top" Width="74"/>
+    </Grid>
+</Window>

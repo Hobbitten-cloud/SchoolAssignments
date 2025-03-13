@@ -1,0 +1,90 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <RootNamespace>Hjemmeprojekt_Terninger</RootNamespace>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Resources\Images\BlaaTerning1.png" />
+    <None Remove="Resources\Images\BlaaTerning2.png" />
+    <None Remove="Resources\Images\BlaaTerning3.png" />
+    <None Remove="Resources\Images\BlaaTerning4.png" />
+    <None Remove="Resources\Images\BlaaTerning5.png" />
+    <None Remove="Resources\Images\BlaaTerning6.png" />
+    <None Remove="Resources\Images\GråTerning1.png" />
+    <None Remove="Resources\Images\GråTerning2.png" />
+    <None Remove="Resources\Images\GråTerning3.png" />
+    <None Remove="Resources\Images\GråTerning4.png" />
+    <None Remove="Resources\Images\GråTerning5.png" />
+    <None Remove="Resources\Images\GråTerning6.png" />
+    <None Remove="Resources\Images\Terning1.png" />
+    <None Remove="Resources\Images\Terning2.png" />
+    <None Remove="Resources\Images\Terning3.png" />
+    <None Remove="Resources\Images\Terning4.png" />
+    <None Remove="Resources\Images\Terning5.png" />
+    <None Remove="Resources\Images\Terning6.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Resources\Images\BlaaTerning1.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Images\BlaaTerning2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Images\BlaaTerning3.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Images\BlaaTerning4.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Images\BlaaTerning5.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Images\BlaaTerning6.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Images\GråTerning1.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Images\GråTerning2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Images\GråTerning3.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Images\GråTerning4.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Images\GråTerning5.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Images\GråTerning6.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Images\Terning1.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Images\Terning2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Images\Terning3.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Images\Terning4.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Images\Terning5.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Images\Terning6.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+</Project>

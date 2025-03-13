@@ -1,0 +1,49 @@
+﻿<Window x:Class="WPFAndMVVM2.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPFAndMVVM2"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="250" MinWidth="200"/>
+            <ColumnDefinition Width="5"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="10*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <ListBox x:Name="LB_Person" ItemsSource="{Binding PersonsVM}" SelectedItem="{Binding SelectedPerson}" SelectionMode="Extended" Grid.Row="0" Margin="0,0,0,36">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="{Binding FirstName}"/>
+                            <TextBlock Text=" "/>
+                            <TextBlock Text="{Binding LastName}"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+            <StackPanel Orientation="Horizontal" Grid.Row="1">
+                <Button x:Name="btnNewPerson" Command="{Binding NewCmd}" CommandParameter="{Binding}" Content="New" Margin="10,0,0,0" VerticalAlignment="Center" Height="20" Width="121" Grid.Row="1"/>
+                <Button x:Name="btnDeletePerson" Command="{Binding DeleteCmd}" CommandParameter="{Binding}" Content="Delete" Height="20" Width="112"/>
+            </StackPanel>
+        </Grid>
+
+        <GridSplitter Width="5" Grid.Column="1" HorizontalAlignment="Stretch"/>
+        <Grid Grid.Column="2">
+            <TextBox x:Name="TB_FirstName" Text="{Binding SelectedPerson.FirstName, UpdateSourceTrigger=PropertyChanged}" Height="20" VerticalAlignment="Top" Margin="170,62,171,0"/>
+            <TextBox x:Name="TB_LastName" Text="{Binding SelectedPerson.LastName, UpdateSourceTrigger=PropertyChanged}" Height="20" Margin="170,109,171,0" VerticalAlignment="Top" />
+            <TextBox x:Name="TB_Age" Text="{Binding SelectedPerson.Age, UpdateSourceTrigger=PropertyChanged}" Height="20" Margin="170,158,171,0" VerticalAlignment="Top"/>
+            <TextBox x:Name="TB_Phone" Text="{Binding SelectedPerson.Phone, UpdateSourceTrigger=PropertyChanged}" Height="20" Margin="170,204,171,0" VerticalAlignment="Top"/>
+            <Label Content="FirstName:" HorizontalAlignment="Left" Margin="67,59,0,0" VerticalAlignment="Top"/>
+            <Label Content="LastName:" HorizontalAlignment="Left" Margin="67,103,0,0" VerticalAlignment="Top" Width="66"/>
+            <Label Content="Age:" HorizontalAlignment="Left" Margin="67,152,0,0" VerticalAlignment="Top"/>
+            <Label Content="Phone:" HorizontalAlignment="Left" Margin="67,204,0,0" VerticalAlignment="Top"/>
+        </Grid>
+    </Grid>
+</Window>

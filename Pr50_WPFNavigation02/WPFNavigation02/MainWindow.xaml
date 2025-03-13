@@ -1,0 +1,21 @@
+﻿<Window x:Class="WPFNavigation02.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPFNavigation02"
+        xmlns:viewmodels="clr-namespace:WPFNavigation02.ViewModels"
+        xmlns:views="clr-namespace:WPFNavigation02.Views"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <ContentControl Content="{Binding CurrentViewModel}">
+        <ContentControl.Resources>
+            <DataTemplate DataType="{x:Type viewmodels:PersonListViewModel}">
+                <views:PersonListView />
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewmodels:AddPersonViewModel}">
+                <views:AddPersonView />
+            </DataTemplate>
+        </ContentControl.Resources>
+    </ContentControl>
+</Window>

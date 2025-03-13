@@ -1,0 +1,15 @@
+﻿<Window x:Class="TusindfrydWPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TusindfrydWPF"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="250" Width="300">
+    <Grid>
+        <Label Content="Blomstersorter" HorizontalAlignment="Left" Margin="24,23,0,0" VerticalAlignment="Top"/>
+        <TextBlock x:Name="tbRepo" HorizontalAlignment="Center" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Background="#FFA7A7A7" Width="254" Height="126"/>
+        <Button x:Name="CreateFlowerButton" Content="Opret Blomstersort" HorizontalAlignment="Left" Margin="150,192,0,0" VerticalAlignment="Top" Height="19" Width="128" Click="CreateFlowerButton_Click"/>
+
+    </Grid>
+</Window>

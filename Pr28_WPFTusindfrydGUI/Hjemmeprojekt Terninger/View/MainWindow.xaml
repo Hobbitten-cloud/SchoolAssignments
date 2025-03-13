@@ -1,0 +1,29 @@
+﻿<Window x:Class="Hjemmeprojekt_Terninger.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Hjemmeprojekt_Terninger"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Button x:Name="buttonBookRules" Content="Book of Rules" HorizontalAlignment="Left" Margin="49,42,0,0" VerticalAlignment="Top" Height="36" Width="103" Click="buttonBookRules_Click"/>
+        <Image x:Name="imageDice1" Source="{Binding image1Path}" HorizontalAlignment="Left" Height="81" Margin="49,128,0,0" VerticalAlignment="Top" Width="72" MouseDown="imageDice1_MouseDown"/>
+        <Image x:Name="imageDice2" Source="/Resources/Images/Terning2.png" HorizontalAlignment="Left" Height="81" Margin="141,128,0,0" VerticalAlignment="Top" Width="72" MouseDown="imageDice2_MouseDown"/>
+        <Image x:Name="imageDice3" Source="/Resources/Images/Terning3.png" HorizontalAlignment="Left" Height="81" Margin="240,128,0,0" VerticalAlignment="Top" Width="72" MouseDown="imageDice3_MouseDown"/>
+        <Image x:Name="imageDice4" Source="/Resources/Images/Terning4.png" HorizontalAlignment="Left" Height="81" Margin="328,128,0,0" VerticalAlignment="Top" Width="72" MouseDown="imageDice4_MouseDown"/>
+        <Image x:Name="imageDice5" Source="/Resources/Images/Terning5.png" HorizontalAlignment="Left" Height="81" Margin="424,128,0,0" VerticalAlignment="Top" Width="72" MouseDown="imageDice5_MouseDown"/>
+        <Image x:Name="imageDice6" Source="/Resources/Images/Terning6.png" HorizontalAlignment="Left" Height="81" Margin="515,128,0,0" VerticalAlignment="Top" Width="72" MouseDown="imageDice6_MouseDown"/>
+        <Button x:Name="buttonRollDice" Content="Roll dice" HorizontalAlignment="Left" Margin="60,284,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Height="42" Width="64" Click="buttonRollDice_Click">
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="0.469"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Button.RenderTransform>
+        </Button>
+
+    </Grid>
+</Window>

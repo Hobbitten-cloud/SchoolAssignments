@@ -1,0 +1,28 @@
+﻿<Window x:Class="WPFInteractiveGUI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPFInteractiveGUI"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="300" Width="500">
+    <Grid>
+        <Label Content="Person Count" HorizontalAlignment="Left" Margin="74,36,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="PersonCount" Content="0" HorizontalAlignment="Left" Margin="160,36,0,0" VerticalAlignment="Top"/>
+        <Label Content="Index" HorizontalAlignment="Left" Margin="217,36,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="IndexCount" Content="-1" HorizontalAlignment="Left" Margin="261,36,0,0" VerticalAlignment="Top"/>
+        <Label Content="FirstName" HorizontalAlignment="Left" Margin="67,94,0,0" VerticalAlignment="Top"/>
+        <Label Content="LastName" HorizontalAlignment="Left" Margin="68,125,0,0" VerticalAlignment="Top"/>
+        <Label Content="Age" HorizontalAlignment="Left" Margin="100,156,0,0" VerticalAlignment="Top"/>
+        <Label Content="TelephoneNo" HorizontalAlignment="Left" Margin="50,189,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="FirstNameBox" HorizontalAlignment="Left" Margin="136,98,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="146"/>
+        <TextBox x:Name="LastNameBox" HorizontalAlignment="Left" Margin="136,129,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="146"/>
+        <TextBox x:Name="AgeBox" HorizontalAlignment="Left" Margin="136,160,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="146"/>
+        <TextBox x:Name="TelephoneBox" HorizontalAlignment="Left" Margin="136,191,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="146"/>
+        <Button x:Name="NewPersonButton" Content="New Person" HorizontalAlignment="Left" Margin="316,94,0,0" VerticalAlignment="Top" Height="22" Width="99" Click="NewPersonButton_Click"/>
+        <Button x:Name="DeletePersonButton" Content="Delete Person" HorizontalAlignment="Left" Margin="316,127,0,0" VerticalAlignment="Top" Height="22" Width="99" Click="DeletePersonButton_Click"/>
+        <Button x:Name="UpButton" Content="Up" HorizontalAlignment="Left" Margin="316,158,0,0" VerticalAlignment="Top" Height="22" Width="99" Click="UpButton_Click"/>
+        <Button x:Name="DownButton" Content="Down" HorizontalAlignment="Left" Margin="316,193,0,0" VerticalAlignment="Top" Height="22" Width="99" Click="DownButton_Click"/>
+
+    </Grid>
+</Window>

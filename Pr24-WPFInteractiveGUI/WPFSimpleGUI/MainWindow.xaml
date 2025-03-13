@@ -1,0 +1,26 @@
+﻿<Window x:Class="WPFSimpleGUI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPFSimpleGUI"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="300" Width="500">
+    <Grid>
+        <Label Content="1" HorizontalAlignment="Left" Margin="69,34,0,0" VerticalAlignment="Top" Width="39"/>
+        <Label Content="2" HorizontalAlignment="Left" Margin="69,78,0,0" VerticalAlignment="Top"/>
+        <Label Content="3" HorizontalAlignment="Left" Margin="69,124,0,0" VerticalAlignment="Top"/>
+        <Label Content="4" HorizontalAlignment="Left" Margin="69,169,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="Scroll_Up" Content="Scroll up" HorizontalAlignment="Left" Margin="304,60,0,0" VerticalAlignment="Top" Width="67" Click="Button_Scroll_Up"/>
+        <Button x:Name="ButtonClear" Content="Clear" HorizontalAlignment="Left" Margin="304,117,0,0" VerticalAlignment="Top" Height="20" Width="67" Click="Button_Clear"/>
+        <Button x:Name="Scroll_Down" Content="Scroll Down" HorizontalAlignment="Left" Margin="304,169,0,0" VerticalAlignment="Top" Click="Button_Scroll_Down"/>
+        <TextBox x:Name="tbLine1" HorizontalAlignment="Left" Margin="113,38,0,0" TextWrapping="Wrap" Text="Linje 1" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="tbLine2" HorizontalAlignment="Left" Margin="113,82,0,0" TextWrapping="Wrap" Text="Linje 2" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="tbLine3" HorizontalAlignment="Left" Margin="113,128,0,0" TextWrapping="Wrap" Text="Linje 3" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="tbLine4" HorizontalAlignment="Left" Margin="113,173,0,0" TextWrapping="Wrap" Text="Linje 4" VerticalAlignment="Top" Width="120"/>
+        <Button Content="Reset" HorizontalAlignment="Left" Margin="402,221,0,0" VerticalAlignment="Top" Click="Button_Reset" Height="38" Width="64"/>
+
+
+
+    </Grid>
+</Window>

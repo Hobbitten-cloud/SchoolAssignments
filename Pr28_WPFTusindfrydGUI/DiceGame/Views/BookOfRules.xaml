@@ -1,0 +1,16 @@
+﻿<Window x:Class="DiceGame.Views.BookOfRules"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DiceGame.Views"
+        mc:Ignorable="d"
+        Title="BookOfRules" Height="450" Width="800">
+    <Grid>
+        <TextBox HorizontalAlignment="Left" Margin="118,0,0,0" TextWrapping="Wrap" VerticalAlignment="Center" Width="123" Height="166" Text="1: 100&#xD;&#xA;5: 50&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;222: 200&#xD;&#xA;333: 300&#xD;&#xA;444: 400&#xD;&#xA;555: 500&#xD;&#xA;666: 600&#xD;&#xA;"/>
+        <TextBox HorizontalAlignment="Center" TextWrapping="Wrap" Text="111: 1000&#xD;&#xA;1111: 2000&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;2222: 400&#xD;&#xA;3333: 600&#xD;&#xA;4444: 800&#xD;&#xA;5555: 1000&#xD;&#xA;6666: 1200&#xD;&#xA;" VerticalAlignment="Center" Width="120" Height="166"/>
+        <TextBox HorizontalAlignment="Left" Margin="554,0,0,0" TextWrapping="Wrap" Text="Straight: 1000&#xD;&#xA;3 par: 1500  &#xD;&#xA;&#xD;&#xA;&#xD;&#xA;22222: 800&#xD;&#xA;33333: 1200&#xD;&#xA;44444: 1600&#xD;&#xA;55555: 2000&#xD;&#xA;66666: 2400" VerticalAlignment="Center" Width="120" Height="166"/>
+        <Label Content="Rules" HorizontalAlignment="Center" Margin="0,43,0,0" VerticalAlignment="Top"/>
+
+    </Grid>
+</Window>

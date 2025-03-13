@@ -1,0 +1,20 @@
+﻿<UserControl x:Class="WPFNavigation02.Views.AddPersonView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WPFNavigation02.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <TextBox HorizontalAlignment="Left" Margin="175,169,0,0" TextWrapping="Wrap" Text="{Binding FirstName}" VerticalAlignment="Top" Width="120"/>
+        <TextBlock HorizontalAlignment="Left" Margin="173,148,0,0" TextWrapping="Wrap" Text="First Name" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="347,148,0,0" TextWrapping="Wrap" Text="Last Name" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" Margin="347,169,0,0" TextWrapping="Wrap" Text="{Binding LastName}" VerticalAlignment="Top" Width="120"/>
+        <TextBlock HorizontalAlignment="Left" Margin="512,148,0,0" TextWrapping="Wrap" Text="Age " VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" Margin="510,168,0,0" TextWrapping="Wrap" Text="{Binding Age}" VerticalAlignment="Top" Width="120"/>
+        <Button Content="Add Person" Command="{Binding AddPersonCommand}" CommandParameter="{Binding}" HorizontalAlignment="Left" Margin="268,225,0,0" VerticalAlignment="Top" Height="32" Width="82"/>
+        <Button Command="{Binding NavigatePersonListViewCommand}" Content="Cancel" HorizontalAlignment="Left" Margin="390,225,0,0" VerticalAlignment="Top" Height="32" Width="82"/>
+
+    </Grid>
+</UserControl>

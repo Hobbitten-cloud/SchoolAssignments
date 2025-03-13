@@ -1,0 +1,16 @@
+﻿<Window x:Class="TestWPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TestWPF"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Label Content="{Binding Path=FullName}" HorizontalAlignment="Left" Margin="70,62,0,0" VerticalAlignment="Top"/>
+
+        <TextBox x:Name="firstName" Text="{Binding Path=FirstName, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Margin="70,113,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="144" Height="20"/>
+        <TextBox x:Name="lastName" Text="{Binding Path=LastName, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Margin="70,161,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="144" Height="21"/>
+        <Button Click="Button_Update" Content="Update" HorizontalAlignment="Left" Margin="527,116,0,0" VerticalAlignment="Top" Height="56" Width="151"/>
+    </Grid>
+</Window>

@@ -1,0 +1,24 @@
+﻿<Window x:Class="WPFAndMVVM1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPFAndMVVM1"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="300" Width="350">
+    <Grid>
+        <Label x:Name="LB1" Content="{Binding ElementName=TB1, Path=Text}" HorizontalAlignment="Left" Margin="30,32,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="TB1" Text="" HorizontalAlignment="Left" Margin="100,36,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="FirstName" Text="{Binding ElementName=LastName, Path=Text, UpdateSourceTrigger=PropertyChanged, Mode=OneWayToSource}" HorizontalAlignment="Left" Margin="30,96,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="LastName" Text="" HorizontalAlignment="Left" Margin="160,96,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Slider x:Name="SliderButton" Minimum="0" Maximum="100" HorizontalAlignment="Left" Margin="30,232,0,0" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="TB3Volume" Text="{Binding ElementName=SliderButton, Path=Value}" HorizontalAlignment="Left" Margin="160,232,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+
+        <Label Content="{Binding MyLabelText, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Margin="30,152,0,0" VerticalAlignment="Top" Width="130" Height="29"/>
+        <Button Click="UpdateButton1" Content="Update" HorizontalAlignment="Left" Margin="192,142,0,0" VerticalAlignment="Top" Height="24" Width="100"/>
+        
+        <TextBox Text="{Binding MyTextBoxText, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Margin="30,186,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="130" Height="26"/>
+        <Button Click="UpdateButton2" Content="Update" HorizontalAlignment="Left" Margin="192,186,0,0" VerticalAlignment="Top" Width="100" Height="26"/>
+
+    </Grid>
+</Window>
