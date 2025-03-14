@@ -24,6 +24,13 @@ namespace Pr53_Scheduling
 
         public ProcessStateType ProcessState { get; set; }
 
+        //public PCB(string processName, int processPriority, ProcessStateType processState)
+        //{
+        //    ProcessName = processName;
+        //    ProcessPriority = processPriority;
+        //    ProcessState = processState;
+        //}
+
         public override string ToString()
         {
             return $"{ProcessName}({ProcessPriority})";
