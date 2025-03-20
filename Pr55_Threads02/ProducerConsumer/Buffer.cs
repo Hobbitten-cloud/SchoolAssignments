@@ -23,29 +23,44 @@ namespace ProducerConsumer
         public void Put(Car car)
         {
             Monitor.Enter(bufferLock);
-
-            bufferData.Enqueue(car);
-            if (bufferData.Count > capacity)
+            try
             {
-                throw new System.ArgumentException("Køen er fuld");
-            }
+                while (IsFull())
+                {
+                    Monitor.Wait(bufferLock);
+                }
 
-            Monitor.Exit(bufferLock);
+                bufferData.Enqueue(car);
+                if (bufferData.Count > capacity)
+                {
+                    throw new System.ArgumentException("Køen er fuld");
+                }
+                Monitor.Pulse(bufferLock);
+            }
+            finally 
+            { 
+                Monitor.Exit(bufferLock); 
+            }
         }
 
         public Car Get()
         {
-            while (IsEmpty())
+            Monitor.Enter(bufferLock);
+            try
             {
-                Monitor.Enter(bufferLock);
+                while (IsEmpty())
+                {
+                    Monitor.Wait(bufferLock);
+                }
+                Car car;
+                car = bufferData.Dequeue();
+                Monitor.Pulse(bufferLock);
+                return car;
             }
-
-            Car car;
-            car = bufferData.Dequeue();
-
-            Monitor.Exit(bufferLock);
-
-            return car;
+            finally
+            {
+                Monitor.Exit(bufferLock);
+            }
         }
 
         public bool IsEmpty()
