@@ -1,0 +1,28 @@
+﻿<Window x:Class="ThreadsInWPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ThreadsInWPF"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Button Content="Start Work" Name="BT_StartWork" 
+                HorizontalAlignment="Left" VerticalAlignment="Top" 
+                Margin="46,109,0,0" Height="36" Width="130" 
+                Click="BT_StartWork_Click"/>
+
+        <ProgressBar Minimum="0" Maximum="99" Name="PB_Work" 
+                     HorizontalAlignment="Left" VerticalAlignment="Top" 
+                     Height="36" Margin="193,109,0,0" Width="345"/>
+
+        <TextBox TextAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top"
+                 Name="TB_Work" Text="No work started yet" Margin="193,109,0,0" 
+                 TextWrapping="Wrap" Width="345" Height="36" Background="{x:Null}"/>
+        
+        <Button Content="Abort Work" Name="TB_AbortWork" 
+                HorizontalAlignment="Left" VerticalAlignment="Top" 
+                Margin="557,109,0,0" Height="36" Width="98" Click="TB_AbortWork_Click"/>
+
+    </Grid>
+</Window>
