@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35222.181
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Interlocked", "Interlocked.csproj", "{2A831394-6B6C-4AC1-95C7-E1A6AD667C1F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2A831394-6B6C-4AC1-95C7-E1A6AD667C1F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2A831394-6B6C-4AC1-95C7-E1A6AD667C1F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2A831394-6B6C-4AC1-95C7-E1A6AD667C1F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2A831394-6B6C-4AC1-95C7-E1A6AD667C1F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4C3413FA-E29F-41BA-A35D-34C705A41F09}
+	EndGlobalSection
+EndGlobal
