@@ -24,9 +24,14 @@ namespace ThreadsInWPF.Code
         // Background thread.
         Thread mainThread;
 
+        // Creates our boolean
+        bool stopBlender1;
+        bool stopBlender2;
+
         public MainWindow()
         {
             InitializeComponent();
+
         }
 
         // Put in button 1
@@ -55,9 +60,15 @@ namespace ThreadsInWPF.Code
             mainThread = new Thread(Blend1);
             mainThread.Start();
 
-            // locks button
+            // locks buttons
             btnBlend1.IsEnabled = false;
             btnClean1.IsEnabled = false;
+
+            // Unlocks buttons
+            btnStop1.IsEnabled = true;
+
+            // Set status for boolean
+            stopBlender1 = false;
 
             // Blend1();
         }
@@ -68,9 +79,15 @@ namespace ThreadsInWPF.Code
             mainThread = new Thread(Blend2);
             mainThread.Start();
 
-            // locks button
+            // locks buttons
             btnBlend2.IsEnabled = false;
             btnClean2.IsEnabled = false;
+
+            // Unlocks buttons
+            btnStop2.IsEnabled = true;
+
+            // Set status for boolean
+            stopBlender2 = false;
 
             // Blend2();
         }
@@ -89,19 +106,46 @@ namespace ThreadsInWPF.Code
             lbBlender2.Items.Clear();
         }
 
+        // Stop button 1
+        private void btnStop1_Click(object sender, RoutedEventArgs e)
+        {
+            // Sets new status for boolean
+            stopBlender1 = true;
+        }
+
+        // Stop button 2
+        private void btnStop2_Click(object sender, RoutedEventArgs e)
+        {
+            // Sets new status for boolean
+            stopBlender2 = true;
+        }
+
         // Method for blender 1 to blend items
         private void Blend1()
         {
             int blendTime = 10;
             for (int i = 0; i < blendTime; i++)
             {
+                if (stopBlender1 == true)
+                {
+                    // Break to jump out of statement
+                    break;
+                }
+
                 lblStatus1.Dispatcher.Invoke(new Action(() => { lblStatus1.Content = $"Blending {i}"; }));
                 // lblStatus1.Dispatcher.Invoke(new Action(() => { lblStatus1.Content = "Blending " + i; }));
 
                 //lblStatus1.Content = $"Blending {i}";
                 Thread.Sleep(1000);
             }
-            lblStatus1.Dispatcher.Invoke(new Action(() => { lblStatus1.Content = "Juice Ready"; }));
+            if (stopBlender1 == true)
+            {
+                lblStatus1.Dispatcher.Invoke(new Action(() => { lblStatus1.Content = "Blender Stopped"; }));
+            }
+            else
+            {
+                lblStatus1.Dispatcher.Invoke(new Action(() => { lblStatus1.Content = "Juice Ready"; }));
+            }
 
             // unlocks button
             //btnBlend1.IsEnabled = true;

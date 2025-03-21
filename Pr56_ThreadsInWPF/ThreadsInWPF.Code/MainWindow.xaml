@@ -7,6 +7,7 @@
         mc:Ignorable="d"
         Title="Juice Factory" Height="450" Width="800">
     <Grid>
+        <!-- List box with fruits -->
         <Label Content="Fruit Casket:" HorizontalAlignment="Left" Margin="28,28,0,0" VerticalAlignment="Top"/>
         <ListBox x:Name="lbFruits" HorizontalAlignment="Left" Height="259" Margin="28,54,0,0" VerticalAlignment="Top" Width="116">
             <ListBoxItem>Apple</ListBoxItem>
@@ -32,6 +33,7 @@
         <Button x:Name="btnBlend1" Content="Blend 1" HorizontalAlignment="Left" Margin="402,87,0,0" VerticalAlignment="Top" Width="81" Height="24" Click="BtnBlend1_Click"/>
         <Label x:Name="lblStatus1" Content="Cleaned" HorizontalAlignment="Left" Margin="506,87,0,0" VerticalAlignment="Top" Width="80" Background="#FFFDED9E" Height="24"/>
         <Button x:Name="btnClean1" Content="Clean 1" HorizontalAlignment="Left" Margin="402,116,0,0" VerticalAlignment="Top" Height="27" Width="81" Click="btnClean1_Click"/>
+        <Button x:Name="btnStop1" Content="STOP 1" IsEnabled="False" HorizontalAlignment="Left" Margin="274,151,0,0" VerticalAlignment="Top" Height="29" Width="90" Click="btnStop1_Click"/>
 
         <!-- Blender 2 settings -->
         <Button x:Name="btnPutIn2" Content="Put in 2" HorizontalAlignment="Left" Margin="170,250,0,0" VerticalAlignment="Top" Width="64" Click="BtnPutIn2_Click" Height="24"/>
@@ -40,6 +42,7 @@
         <Button x:Name="btnBlend2" Content="Blend 2" HorizontalAlignment="Left" Height="24" Margin="402,250,0,0" VerticalAlignment="Top" Width="81" Click="BtnBlend2_Click"/>
         <Label x:Name="lblStatus2" Content="Cleaned" HorizontalAlignment="Left" Margin="506,250,0,0" VerticalAlignment="Top" Width="80" Background="#FFFDED9E" Height="24"/>
         <Button x:Name="btnClean2" Content="Clean 2" HorizontalAlignment="Left" Margin="402,279,0,0" VerticalAlignment="Top" Height="27" Width="81" Click="btnClean2_Click"/>
+        <Button x:Name="btnStop2" Content="STOP 2" IsEnabled="False" HorizontalAlignment="Left" Margin="274,315,0,0" VerticalAlignment="Top" Height="29" Width="90" Click="btnStop2_Click"/>
 
     </Grid>
 </Window>
