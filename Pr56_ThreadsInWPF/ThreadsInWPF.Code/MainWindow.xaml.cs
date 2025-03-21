@@ -70,6 +70,9 @@ namespace ThreadsInWPF.Code
             // Set status for boolean
             stopBlender1 = false;
 
+            // Set start value for our Progress bar
+            pbBar1.Value = 0;
+
             // Blend1();
         }
 
@@ -89,6 +92,9 @@ namespace ThreadsInWPF.Code
             // Set status for boolean
             stopBlender2 = false;
 
+            // Set start value for our Progress bar
+            pbBar2.Value = 0;
+
             // Blend2();
         }
 
@@ -97,6 +103,10 @@ namespace ThreadsInWPF.Code
         {
             lblStatus1.Content = "Cleaned";
             lbBlender1.Items.Clear();
+            pbBar1.Value = 0;
+
+            // Lock button
+            btnStop1.IsEnabled = false;
         }
 
         // Clean button 2
@@ -104,6 +114,10 @@ namespace ThreadsInWPF.Code
         {
             lblStatus2.Content = "Cleaned";
             lbBlender2.Items.Clear();
+            pbBar2.Value = 0;
+
+            // Lock button
+            btnStop2.IsEnabled = false;
         }
 
         // Stop button 1
@@ -132,15 +146,30 @@ namespace ThreadsInWPF.Code
                     break;
                 }
 
-                lblStatus1.Dispatcher.Invoke(new Action(() => { lblStatus1.Content = $"Blending {i}"; }));
-                // lblStatus1.Dispatcher.Invoke(new Action(() => { lblStatus1.Content = "Blending " + i; }));
+                // Sets up our progress bar
+                pbBar1.Dispatcher.Invoke(new Action(() => { pbBar1.Value = i; }));
+
+                // Updates our content for display
+                if (i < 2)
+                {
+                    lblStatus1.Dispatcher.Invoke(new Action(() => { lblStatus1.Content = "Blender Starting"; }));
+                    // lblStatus1.Dispatcher.Invoke(new Action(() => { lblStatus1.Content = $"Blending {i}"; }));
+                }
+                else if (i < 4)
+                {
+                    lblStatus1.Dispatcher.Invoke(new Action(() => { lblStatus1.Content = "Blender Halfway"; }));
+                }
+                else if (i > 8)
+                {
+                    lblStatus1.Dispatcher.Invoke(new Action(() => { lblStatus1.Content = "Blender Finishing"; }));
+                }
 
                 //lblStatus1.Content = $"Blending {i}";
                 Thread.Sleep(1000);
             }
             if (stopBlender1 == true)
             {
-                lblStatus1.Dispatcher.Invoke(new Action(() => { lblStatus1.Content = "Blender Stopped"; }));
+                lblStatus1.Dispatcher.Invoke(new Action(() => { lblStatus1.Content = "ABORTED"; }));
             }
             else
             {
@@ -162,7 +191,23 @@ namespace ThreadsInWPF.Code
             int blendTime = 10;
             for (int i = 0; i < blendTime; i++)
             {
-                lblStatus2.Dispatcher.Invoke(new Action(() => { lblStatus2.Content = $"Blending {i}"; }));
+                // Sets up our progress bar
+                pbBar2.Dispatcher.Invoke(new Action(() => { pbBar2.Value = i; }));
+
+                // Updates our content for display
+                if (i < 3)
+                {
+                    lblStatus2.Dispatcher.Invoke(new Action(() => { lblStatus2.Content = "Blender Starting"; }));
+                    // lblStatus1.Dispatcher.Invoke(new Action(() => { lblStatus1.Content = $"Blending {i}"; }));
+                }
+                else if (i < 4)
+                {
+                    lblStatus2.Dispatcher.Invoke(new Action(() => { lblStatus2.Content = "Blender Halfway"; }));
+                }
+                else if (i > 8)
+                {
+                    lblStatus2.Dispatcher.Invoke(new Action(() => { lblStatus2.Content = "Blender Finishing"; }));
+                }
 
                 //lblStatus2.Content = $"Blending {i}";
                 Thread.Sleep(1000);
