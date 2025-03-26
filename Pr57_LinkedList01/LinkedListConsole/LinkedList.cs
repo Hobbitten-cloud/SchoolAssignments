@@ -76,12 +76,6 @@ namespace LinkedListConsole
                 throw new IndexOutOfRangeException();
             }
 
-            // If list is empty, return null (though this is redundant after the index check)
-            if (Head == null)
-            {
-                return null;
-            }
-
             // Traverse to the node at the given index
             Node current = Head;
             for (int i = 0; i < index && current != null; i++)
