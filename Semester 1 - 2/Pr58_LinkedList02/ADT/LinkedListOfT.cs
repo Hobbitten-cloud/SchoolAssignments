@@ -198,6 +198,27 @@
             // og alle omkringliggende noder er korrekt opdateret.
         }
 
+        //--------------------------------------------------------
+        // Koden forneden gør det samme men mere simpelt skrevet
+        //--------------------------------------------------------
+        //public void Swap(int index)
+        //{
+        //    if (index < 0 || index >= _count - 1)
+        //        throw new IndexOutOfRangeException("Invalid index for swap!");
+
+        //    Node firstNode = _head;
+        //    for (int i = 0; i < index; i++)
+        //    {
+        //        firstNode = firstNode.Next;
+        //    }
+
+        //    Node secondNode = firstNode.Next;
+
+        //    T temp = firstNode.Data;
+        //    firstNode.Data = secondNode.Data;
+        //    secondNode.Data = temp;
+        //}
+
 
         public override string ToString()
         {
