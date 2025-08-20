@@ -1,0 +1,24 @@
+.ButtonClass
+{
+    width: 110px;
+    height: 30px;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+}
+
+#priceColor
+{
+    color: green;
+    text-align: left;
+}
+
+#buttonBuy
+{
+    background-color: rgb(255, 164, 28);
+}
+
+#buttonAddToCart
+{
+    background-color: rgb(255, 216, 20);
+}

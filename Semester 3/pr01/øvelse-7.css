@@ -1,0 +1,23 @@
+.Bold
+{
+    font-weight: bold;
+}
+
+.SetupStuffOnSameLine
+{
+    display: inline-block;
+}
+
+.ButtonClass
+{
+    border-radius: 4px;
+    background-color: blue;
+    color: white;
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+#AlignLeft
+{
+    text-align: left;
+}

@@ -1,0 +1,22 @@
+.Picture1
+{
+    border-radius: 20px;
+    width: 250px;
+    display: block;
+}
+
+.Picture2
+{
+    width: 170px;
+    height: 170px;
+    border: none;
+    display: block;
+}
+
+.Picture3
+{
+    border-radius: 1000px;
+    width: 170px;
+    height: 170px;
+    display: block;
+}
