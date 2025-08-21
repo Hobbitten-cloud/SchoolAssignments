@@ -1,0 +1,27 @@
+.FontForAll
+{
+    font-family: Arial;
+    text-align: center;
+}
+
+.LayoutSetup
+{
+    margin-top: 10px;
+}
+
+#ColorForNew
+{
+    color: rgb(245, 99, 0);
+}
+
+#SettingsForButton
+{
+    font-size: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+    color: white;
+    background-color: royalblue;
+    border: none;
+    border-radius: 20px;
+}
+
