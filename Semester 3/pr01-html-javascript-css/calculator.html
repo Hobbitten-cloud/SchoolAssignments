@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculater</title>
+
+    <script src="calculater.js" defer></script>
 </head>
 <body>
     <div>
@@ -15,13 +17,13 @@
         </form>
 
         <div>
-            <button>Add</button>
-            <button>Subtract</button>
+            <button onclick="Add()">Add</button>
+            <button onclick="Subtract()">Subtract</button>
             <button>Multiply</button>
             <button>Divide</button>
+            <br>
+            <p id="ShowResult">Du skal indskrive tal og derefter klikke på en knap!</p>
         </div>
-
-        <script scr="calculater.js"></script>
     </div>
 </body>
 </html>
