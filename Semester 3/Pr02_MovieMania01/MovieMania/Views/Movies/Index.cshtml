@@ -1,0 +1,37 @@
+﻿@using MovieMania.Models
+
+@model List<Movie>
+
+@section title {
+    <div style="gap: 1000px" class="d-inline-flex">
+        <h1>Movies:</h1>
+        <button class="btn btn-primary">Add Movie</button>
+    </div>
+}
+
+
+@if (Model != null && Model.Count() > 0)
+{
+    <div style="gap: 15px" class="row">
+        @foreach (var movie in Model)
+        {
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">@movie.Title</h5>
+
+                    <h6 class="card-subtitle mb-2 text-body-secondary">
+                        @movie.ReleaseYear
+                        @movie.DurationInMinutes
+                        @movie.Rating
+                    </h6>
+
+                    <p class="card-text">@movie.Description</p>
+                    <a href="#" class="btn btn-primary">Edit</a>
+                    <a href="#" class="btn btn-danger">Delete</a>
+                </div>
+            </div>
+        }
+    </div>
+}
+
+
