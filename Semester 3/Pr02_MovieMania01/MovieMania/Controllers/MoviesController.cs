@@ -10,5 +10,10 @@ namespace MovieMania.Controllers
             var movies = MovieRepository.GetAll();
             return View(movies);
         }
-    }
+
+        public IActionResult Add()
+		{
+			return View();
+		}
+	}
 }
