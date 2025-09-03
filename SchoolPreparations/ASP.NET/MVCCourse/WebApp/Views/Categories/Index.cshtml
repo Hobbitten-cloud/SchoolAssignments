@@ -1,7 +1,4 @@
-﻿@using WebApp.Models
-@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
-
-@model List<Category>
+﻿@model List<Category>
 
 @section title {
 <h3>Categories</h3>
@@ -15,6 +12,7 @@
 				<th>Name</th>
 				<th>Description</th>
 				<th></th>
+				<th></th>
 			</tr>
 		</thead>
 		<tbody>
@@ -24,6 +22,7 @@
 					<td>@category.Name</td>
 					<td>@category.Description</td>
 					<td><a class="btn btn-link" asp.asp-controller="categories" asp-action="edit" asp-route-id="@category.CategoryId">Edit</a></td>
+					<td><a class="btn btn-link" asp.asp-controller="categories" asp-action="delete" asp-route-id="@category.CategoryId">Delete</a></td>
 					@* <td><a class="btn btn-link" href="@($"/categories/edit/{category.CategoryId}")">Edit</a></td> *@
 				</tr>
 			}

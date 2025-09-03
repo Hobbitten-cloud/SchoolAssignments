@@ -1,6 +1,4 @@
-﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
-
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -37,5 +35,8 @@
         <div>
             @RenderBody()
         </div>
+    </div>
+    <div>
+        @await RenderSectionAsync("scripts", required: false)
     </div>
 </body>
