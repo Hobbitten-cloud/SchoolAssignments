@@ -29,11 +29,14 @@
     </header>
     <div class="container">
         <div>
-            @RenderSection("title")
+            @RenderSection("title", false)
             <hr />
         </div>
         <div>
             @RenderBody()
+        </div>
+        <div>
+            @await RenderSectionAsync("scripts", required: false)
         </div>
     </div>
 </body>
