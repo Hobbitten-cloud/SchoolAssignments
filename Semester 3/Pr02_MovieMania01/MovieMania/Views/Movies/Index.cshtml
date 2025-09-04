@@ -24,6 +24,10 @@
                         @movie.Rating
                     </h6>
 
+                    <h6 class="card-subtitle mb-2 text-body-secondary">
+                        Directed by @movie.Director.FirstName @movie.Director.LastName
+                    </h6>
+
                     <p class="card-text">@movie.Description</p>
                     <a asp-controller="movies" asp-action="edit" asp-route-id="@movie.MovieId" class="btn btn-primary">Edit</a>
                     <a asp-controller="movies" asp-action="delete" asp-route-id="@movie.MovieId" class="btn btn-danger" onclick="confirmDelete('@movie.Title')">Delete</a>

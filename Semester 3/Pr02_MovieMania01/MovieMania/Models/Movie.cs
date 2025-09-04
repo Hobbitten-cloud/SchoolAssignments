@@ -23,5 +23,11 @@ namespace MovieMania.Models
 
         [Range(1, 10)]
         public int? Rating { get; set; }
+
+        // Director class information   
+        [Required]
+        [Display(Name = "Director")]
+        public int? DirectorId {get; set; }
+        public Director? Director { get; set; }
     }
 }
