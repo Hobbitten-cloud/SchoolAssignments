@@ -1,0 +1,84 @@
+﻿@model Movie
+
+@{
+    string action = ViewBag.Action ?? string.Empty;
+}
+
+<form method="post" asp-controller="Movies" asp-action="@action">
+
+    @if (action.ToLower() == "edit")
+    {
+        <input type="hidden" asp-for="MovieId" />
+    }
+
+    <div class="text-danger" asp-validation-summary="All"></div>
+
+    <div class="row mb-3">
+        <div class="col-2">
+            <label class="col" asp-for="Title"></label>
+        </div>
+        <div class="col-6">
+            <input type="text" asp-for="Title" class="form-control" />
+        </div>
+        <div class="col-10">
+            <span class="text-danger" asp-validation-for="Title"></span>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <div class="col-2">
+            <label class="col" asp-for="ReleaseYear"></label>
+        </div>
+        <div class="col-6">
+            <input type="text" asp-for="ReleaseYear" class="form-control" />
+        </div>
+        <div>
+            <span class="text-danger" asp-validation-for="ReleaseYear"></span>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <div class="col-2">
+            <label class="col" asp-for="DurationInMinutes"></label>
+        </div>
+        <div class="col-6">
+            <input type="text" asp-for="DurationInMinutes" class="form-control" />
+        </div>
+        <div class="col-10">
+            <span class="text-danger" asp-validation-for="DurationInMinutes"></span>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <div class="col-2">
+            <label class="col" asp-for="Description"></label>
+        </div>
+        <div class="col-6">
+            <input type="text" asp-for="Description" class="form-control" />
+        </div>
+        <div class="col-10">
+            <span class="text-danger" asp-validation-for="Description"></span>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <div class="col-2">
+            <label class="col" asp-for="Rating"></label>
+        </div>
+        <div class="col-6">
+            <input type="text" asp-for="Rating" class="form-control" />
+        </div>
+        <div class="col-10">
+            <span class="text-danger" asp-validation-for="Rating"></span>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <div class="col-2">
+            <a asp-controller="movies" asp-action="index" class="btn btn-danger">Cancel</a>
+        </div>
+        <div class="col-10">
+            <button class="btn btn-primary">Submit</button>
+        </div>
+    </div>
+</form>

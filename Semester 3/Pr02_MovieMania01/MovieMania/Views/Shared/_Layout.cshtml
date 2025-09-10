@@ -1,6 +1,4 @@
-﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
-
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -24,6 +22,9 @@
                         <li class="nav-item">
                             <a class="nav-link" asp-controller="movies" asp-action="index">Movies</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-controller="directors" asp-action="index">Directors</a>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -31,11 +32,14 @@
     </header>
     <div class="container">
         <div>
-            @RenderSection("title")
+            @RenderSection("title", false)
             <hr />
         </div>
         <div>
             @RenderBody()
+        </div>
+        <div>
+            @await RenderSectionAsync("scripts", required: false)
         </div>
     </div>
 </body>

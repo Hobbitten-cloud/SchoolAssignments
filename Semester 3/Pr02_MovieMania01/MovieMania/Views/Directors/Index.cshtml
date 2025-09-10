@@ -1,0 +1,43 @@
+﻿@model List<Director>
+
+@section title
+{
+    <div style="gap: 1000px" class="d-inline-flex">
+        <h1>directors:</h1>
+
+        <a asp-controller="directors" asp-action="add" class="align-content-center btn btn-primary">Add director</a>
+    </div>
+}
+
+@if (Model != null && Model.Count() > 0)
+{
+    <div style="gap: 15px" class="row">
+        @foreach (var director in Model)
+        {
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">@director.FullName</h5>
+
+                    <h6 class="card-subtitle mb-2 text-body-secondary">
+                        @director.FirstName
+                        @director.LastName
+                    </h6>
+
+                    <p class="card-text">@director.FirstName</p>
+                    <a asp-controller="directors" asp-action="edit" asp-route-id="@director.DirectorId" class="btn btn-primary">Edit</a>
+                    <a asp-controller="directors" asp-action="delete" asp-route-id="@director.DirectorId" class="btn btn-danger" onclick="confirmDelete('@director.FullName')">Delete</a>
+                </div>
+            </div>
+        }
+    </div>
+}
+
+@section scripts
+{
+    <script>
+        function confirmDelete(directorFullName) 
+        {
+            return confirm("Are you sure you want to delete the director: " + directorFullName + "?");
+        }
+    </script>
+}

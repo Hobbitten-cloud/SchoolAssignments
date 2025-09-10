@@ -1,0 +1,45 @@
+﻿@model BookingViewModel
+
+@{
+    string action = ViewBag.Action ?? string.Empty;
+}
+
+<div class="container my-4">
+
+
+    <form method="post" asp-controller="Bookings" asp-action="@action" class="mt-4">
+        @if (action == "edit")
+        {
+            <input type="hidden" asp-for="Booking.BookingId" />
+        }
+
+        <div class="mb-3">
+            <label asp-for="Booking.Title" class="form-label"></label>
+            <input asp-for="Booking.Title" class="form-control" />
+            <span asp-validation-for="Booking.Title" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Booking.StartTime" class="form-label"></label>
+            <input type="datetime-local" step="60" asp-for="Booking.StartTime" class="form-control" />
+            <span asp-validation-for="Booking.StartTime" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Booking.EndTime" class="form-label"></label>
+            <input type="datetime-local" step="60" asp-for="Booking.EndTime" class="form-control" />
+            <span asp-validation-for="Booking.EndTime" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Booking.RoomId" class="form-label"></label>
+            <select asp-for="Booking.RoomId" asp-items="@(new SelectList(Model.Rooms, "RoomId", "Name", Model.Booking?.RoomId))" class="form-select">
+                <option>- Please Select -</option>
+            </select>
+            <span asp-validation-for="Booking.RoomId" class="text-danger"></span>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <a asp-controller="Bookings" asp-action="Index" class="btn btn-secondary ms-2">Cancel</a>
+    </form>
+</div>

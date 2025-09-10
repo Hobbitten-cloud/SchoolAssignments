@@ -1,0 +1,26 @@
+﻿@model List<Room>
+
+<div class="d-flex justify-content-between align-items-center mt-4 mb-4">
+    <h1 class="mb-0">Rooms:</h1>
+</div>
+
+<div class="d-flex flex-wrap gap-3">
+
+    <table class="table">
+        <tr>
+            <th>Name</th>
+            <th>Capacity</th>
+            <th></th>
+        </tr>
+        @foreach (var room in Model)
+        {
+            <tr>
+                <th>@room.Name</th>
+                <th>@room.Capacity</th>
+                <th>
+                    <a asp-controller="Bookings" asp-action="Add" asp-route-id="@room.RoomId" class="btn btn-link">Book</a>
+                </th>
+            </tr>
+        }
+    </table>
+</div>
