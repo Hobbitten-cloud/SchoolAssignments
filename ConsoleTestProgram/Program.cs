@@ -4,10 +4,62 @@
     {
         static void Main(string[] args)
         {
-            for (int i = 0; i < 101; i++)
+            TestClass testClass = new TestClass();
+
+            testClass.LoopPrintOne();
+        }
+
+        public class TestClass
+        {
+            public void PrintHelloWorld()
             {
-                Console.WriteLine(i + " " + (i + 1) + " " + (i + 2));
+                Console.WriteLine("Hello World");
             }
+
+            public void LoopPrintOne()
+            {
+                for (int i = 0; i <= 100; i++)
+                {
+                    Console.WriteLine(i);
+                }
+            }
+
+            public void LoopPrintTwo()
+            {
+                for (int i = 0; i < 101; i++)
+                {
+                    Console.WriteLine(i + " " + (i + 1) + " " + (i + 2));
+                }
+            }
+
+            public void LoopPrintThree()
+            {
+                for (int i = 0; i <= 104; i++)
+                {
+                    if (i % 5 == 0 && i > 0)
+                    {
+                        Console.WriteLine();
+                    }
+
+                    Console.Write(i + " ");
+                }
+            }
+
+            public string A(string text)
+            {
+                return text + text;
+            }
+
+            public string A(string text1, string text2)
+            {
+                return text1 + text2 + text1 + text2;
+            }
+
+            public string A(string text1, string text2, string text3)
+            {
+                return text1 + text2 + text3;
+            }
+
         }
     }
 }
