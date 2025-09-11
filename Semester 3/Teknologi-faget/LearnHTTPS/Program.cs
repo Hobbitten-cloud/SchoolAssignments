@@ -7,6 +7,31 @@ namespace LearnHTTPS
             var builder = WebApplication.CreateBuilder(args);
             var app = builder.Build();
 
+            app.MapGet("/flower", () =>
+            {
+                return "Reading all flowers";
+            });
+
+            app.MapPost("/flower", () =>
+            {
+                return "Creating a new flower";
+            });
+
+            app.MapGet("/flower/{id}", (int id) =>
+            {
+                return $"Reading flower with ID: {id}";
+            });
+
+            app.MapPut("/flower/{id}", (int id) =>
+            {
+                return $"Updating flower with ID: {id}";
+            });
+
+            app.MapDelete("/flower/{id}", (int id) =>
+            {
+                return $"Deleting flower with ID: {id}";
+            });
+
             app.MapGet("/", (HttpContext context) =>
             {
                 HttpResponse response = context.Response;
