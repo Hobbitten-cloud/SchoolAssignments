@@ -6,7 +6,7 @@
         {
             TestClass testClass = new TestClass();
 
-            testClass.LoopPrintOne();
+            testClass.LoopPrintTwo();
         }
 
         public class TestClass
@@ -59,7 +59,6 @@
             {
                 return text1 + text2 + text3;
             }
-
         }
     }
 }
