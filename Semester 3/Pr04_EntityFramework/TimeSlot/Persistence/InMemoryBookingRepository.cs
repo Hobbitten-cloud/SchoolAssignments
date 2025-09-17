@@ -2,7 +2,7 @@
 
 namespace TimeSlot.Persistence
 {
-    public static class InMemoryBookingRepository 
+    public static class InMemoryBookingRepository
     {
         private static List<Booking> bookings = new List<Booking>
         {
@@ -45,7 +45,7 @@ namespace TimeSlot.Persistence
 
         public static List<Booking> GetAll()
         {
-           if (bookings != null && bookings.Count > 0)
+            if (bookings != null && bookings.Count > 0)
             {
                 foreach (var booking in bookings)
                 {

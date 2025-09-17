@@ -9,7 +9,7 @@ namespace TimeSlot.Controllers
     {
         public IActionResult Index()
         {
-            var bookings = InMemoryBookingRepository.GetAll();
+            var bookings = BookingRepository.GetAll();
             return View(bookings);
         }
 
@@ -42,7 +42,7 @@ namespace TimeSlot.Controllers
                 return View(bookingVM);
             }
 
-            InMemoryBookingRepository.Add(bookingVM.Booking);
+            BookingRepository.Add(bookingVM.Booking);
             return RedirectToAction("Index");
         }
 
@@ -50,7 +50,7 @@ namespace TimeSlot.Controllers
         {
             BookingViewModel bookingVM = new BookingViewModel
             {
-                Booking = InMemoryBookingRepository.GetById(id ?? 0),
+                Booking = BookingRepository.GetById(id ?? 0),
                 Rooms = InMemoryRoomRepository.GetAll()
             };
 
@@ -71,14 +71,14 @@ namespace TimeSlot.Controllers
                 return View(bookingVM);
             }
 
-            InMemoryBookingRepository.Update(bookingVM.Booking);
+            BookingRepository.Update(bookingVM.Booking);
             
             return RedirectToAction("Index");
         }
 
         public IActionResult Delete(int id)
         {
-            InMemoryBookingRepository.Delete(id);
+            BookingRepository.Delete(id);
 
             return RedirectToAction("Index");   
         }
