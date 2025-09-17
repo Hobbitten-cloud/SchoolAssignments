@@ -1,4 +1,5 @@
-﻿using TimeSlot.Data;
+﻿using Microsoft.EntityFrameworkCore;
+using TimeSlot.Data;
 using TimeSlot.Models;
 
 namespace TimeSlot.Persistence
@@ -29,26 +30,30 @@ namespace TimeSlot.Persistence
 
         public List<Booking> GetAll()
         {
-            if (bookings != null && bookings.Count > 0)
-            {
-                foreach (var booking in bookings)
-                {
-                    booking.Room = InMemoryRoomRepository.GetById(booking.RoomId) ?? new Room();
-                }
-            }
+            //if (bookings != null && bookings.Count > 0)
+            //{
+            //    foreach (var booking in bookings)
+            //    {
+            //        booking.Room = InMemoryRoomRepository.GetById(booking.RoomId) ?? new Room();
+            //    }
+            //}
 
-            return bookings ?? new List<Booking>();
+            //return bookings ?? new List<Booking>();
+
+            return _timeSlot.Bookings.ToList();
         }
 
         public Booking? GetById(int id)
         {
-            var booking = bookings.FirstOrDefault(x => x.BookingId == id);
+            //var booking = bookings.FirstOrDefault(x => x.BookingId == id);
 
-            if (booking != null)
-            {
-                booking.Room = InMemoryRoomRepository.GetById(booking.RoomId) ?? new Room();
-            }
-            return booking;
+            //if (booking != null)
+            //{
+            //    booking.Room = InMemoryRoomRepository.GetById(booking.RoomId) ?? new Room();
+            //}
+            //return booking;
+            
+            return _timeSlot.Bookings.Find(id);
         }
 
         public void Update(Booking booking)

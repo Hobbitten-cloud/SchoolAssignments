@@ -5,9 +5,15 @@ namespace TimeSlot.Controllers
 {
     public class RoomsController : Controller
     {
+        private RoomRepository _roomRepo;
+        public RoomsController(RoomRepository roomRepo)
+        {
+            _roomRepo = roomRepo;
+        }
+
         public IActionResult Index()
         {
-            var rooms = InMemoryRoomRepository.GetAll();
+            var rooms = _roomRepo.GetAll();
             return View(rooms);
         }
     }

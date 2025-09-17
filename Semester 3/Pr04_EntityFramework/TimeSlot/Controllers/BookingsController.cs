@@ -7,9 +7,17 @@ namespace TimeSlot.Controllers
 {
     public class BookingsController : Controller
     {
+        private readonly BookingRepository _bookingRepo;
+        private readonly RoomRepository _roomRepo;
+        public BookingsController(BookingRepository bookingRepo, RoomRepository roomRepo)
+        {
+            _bookingRepo = bookingRepo;
+            _roomRepo = roomRepo;
+        }
+
         public IActionResult Index()
         {
-            var bookings = BookingRepository.GetAll();
+            var bookings = _bookingRepo.GetAll();
             return View(bookings);
         }
 
@@ -19,7 +27,7 @@ namespace TimeSlot.Controllers
 
             var bookingVM = new BookingViewModel
             {
-                Rooms = InMemoryRoomRepository.GetAll()
+                Rooms = _roomRepo.GetAll()
             };
 
             var date = DateTime.Now;
@@ -36,13 +44,13 @@ namespace TimeSlot.Controllers
         {
             if (!ModelState.IsValid)
             {
-                bookingVM.Rooms = InMemoryRoomRepository.GetAll();
+                bookingVM.Rooms = _roomRepo.GetAll();
                 ViewBag.Action = "add";
 
                 return View(bookingVM);
             }
 
-            BookingRepository.Add(bookingVM.Booking);
+            _bookingRepo.Add(bookingVM.Booking);
             return RedirectToAction("Index");
         }
 
@@ -50,8 +58,8 @@ namespace TimeSlot.Controllers
         {
             BookingViewModel bookingVM = new BookingViewModel
             {
-                Booking = BookingRepository.GetById(id ?? 0),
-                Rooms = InMemoryRoomRepository.GetAll()
+                Booking = _bookingRepo.GetById(id ?? 0),
+                Rooms = _roomRepo.GetAll()
             };
 
             ViewBag.Action = "edit";
@@ -64,21 +72,21 @@ namespace TimeSlot.Controllers
         {
             if (!ModelState.IsValid)
             {
-                bookingVM.Rooms = InMemoryRoomRepository.GetAll();
+                bookingVM.Rooms = _roomRepo.GetAll();
 
                 ViewBag.Action = "edit";
 
                 return View(bookingVM);
             }
 
-            BookingRepository.Update(bookingVM.Booking);
+            _bookingRepo.Update(bookingVM.Booking);
             
             return RedirectToAction("Index");
         }
 
         public IActionResult Delete(int id)
         {
-            BookingRepository.Delete(id);
+            _bookingRepo.Delete(id);
 
             return RedirectToAction("Index");   
         }
