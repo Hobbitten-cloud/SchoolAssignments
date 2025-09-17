@@ -40,7 +40,7 @@ namespace TimeSlot.Persistence
 
             //return bookings ?? new List<Booking>();
 
-            return _timeSlot.Bookings.ToList();
+            return _timeSlot.Bookings.Include(r => r.Room).ToList();
         }
 
         public Booking? GetById(int id)
