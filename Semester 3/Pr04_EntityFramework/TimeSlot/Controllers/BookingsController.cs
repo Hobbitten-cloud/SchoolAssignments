@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using TimeSlot.Models;
 using TimeSlot.Persistence;
 using TimeSlot.ViewModels;
@@ -9,12 +10,14 @@ namespace TimeSlot.Controllers
     {
         private readonly BookingRepository _bookingRepo;
         private readonly RoomRepository _roomRepo;
+
         public BookingsController(BookingRepository bookingRepo, RoomRepository roomRepo)
         {
             _bookingRepo = bookingRepo;
             _roomRepo = roomRepo;
         }
 
+        [Authorize]
         public IActionResult Index()
         {
             var bookings = _bookingRepo.GetAll();
