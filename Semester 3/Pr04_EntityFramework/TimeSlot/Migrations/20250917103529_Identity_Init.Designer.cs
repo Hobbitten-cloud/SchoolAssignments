@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TimeSlot.Data;
 
@@ -11,9 +12,11 @@ using TimeSlot.Data;
 namespace TimeSlot.Migrations
 {
     [DbContext(typeof(TimeSlotContext))]
-    partial class TimeSlotContextModelSnapshot : ModelSnapshot
+    [Migration("20250917103529_Identity_Init")]
+    partial class Identity_Init
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

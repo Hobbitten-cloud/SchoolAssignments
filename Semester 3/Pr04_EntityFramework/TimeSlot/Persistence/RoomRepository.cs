@@ -1,11 +1,12 @@
-﻿using TimeSlot.Data;
+﻿using Microsoft.EntityFrameworkCore;
+using TimeSlot.Data;
 using TimeSlot.Models;
 
 namespace TimeSlot.Persistence
 {
     public class RoomRepository : IRoomRepository
     {
-        private List<Room> rooms;
+        private List<Room> rooms { get; set; }
         private readonly TimeSlotContext _timeSlot;
 
         public RoomRepository(TimeSlotContext timeSlot)
@@ -29,7 +30,7 @@ namespace TimeSlot.Persistence
 
         public List<Room> GetAll()
         {
-            return rooms;
+            return _timeSlot.Rooms.ToList();
         }
 
         public Room? GetById(int id)

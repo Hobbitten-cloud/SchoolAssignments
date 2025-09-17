@@ -1,20 +1,29 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using TimeSlot.Models;
 
 namespace TimeSlot.Data
 {
-    public class TimeSlotContext : DbContext
+    public class TimeSlotContext : IdentityDbContext
     {
+        public DbSet<ApplicationUser> ApplicationUsers { get; set; }
         public DbSet<Booking> Bookings { get; set; }
         public DbSet<Room> Rooms { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            base.OnModelCreating(modelBuilder);
+
             // Define relationships and constraints
             modelBuilder.Entity<Booking>()
                 .HasOne<Room>(r => r.Room)
                 .WithMany(b => b.Bookings)
                 .HasForeignKey(ri => ri.RoomId);
+
+            modelBuilder.Entity<ApplicationUser>()
+                .HasMany<Booking>(r => r.bookings)
+                .WithOne(b => b.User)
+                .HasForeignKey(bi => bi.UserId);
 
             // Seed initial data for Rooms
             modelBuilder.Entity<Room>().HasData(
@@ -56,7 +65,7 @@ namespace TimeSlot.Data
 
         public TimeSlotContext(DbContextOptions<TimeSlotContext> dbContextOptions) : base(dbContextOptions)
         {
-            
+
         }
     }
 }
