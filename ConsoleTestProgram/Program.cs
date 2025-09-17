@@ -6,11 +6,19 @@
         {
             TestClass testClass = new TestClass();
 
-            testClass.FunWithWhileLoops();
+            testClass.MenuWithCounting();
         }
 
         public class TestClass
         {
+            public void MenuWithCounting()
+            {
+                Console.Write("Skriv din alder: ");
+                string Input = Console.ReadLine();
+                Console.WriteLine();
+                Console.WriteLine("Din alder er: " + Input);
+            }
+
             public void FunWithWhileLoops()
             {
                 int i = 0;
