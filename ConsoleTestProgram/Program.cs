@@ -6,11 +6,22 @@
         {
             TestClass testClass = new TestClass();
 
-            testClass.LoopPrintTwo();
+            testClass.FunWithWhileLoops();
         }
 
         public class TestClass
         {
+            public void FunWithWhileLoops()
+            {
+                int i = 0;
+                while (i < 5)
+                {
+                    Console.WriteLine(i);
+                    //i++;
+                    i = i + 1;
+                }
+            }
+
             public void PrintHelloWorld()
             {
                 Console.WriteLine("Hello World");
