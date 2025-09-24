@@ -19,10 +19,10 @@ namespace Pr06_API.Services
 
             var response = await httpClient.GetAsync($"character/{id}");
 
-            if (!response.IsSuccessStatusCode)
-            {
-                return null;
-            }
+            //if (!response.IsSuccessStatusCode)
+            //{
+            //    return null;
+            //}
 
             return await response.Content.ReadFromJsonAsync<Character>();
         }
