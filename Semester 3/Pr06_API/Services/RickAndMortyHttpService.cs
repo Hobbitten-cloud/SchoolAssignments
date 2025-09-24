@@ -1,5 +1,6 @@
 ﻿using Pr06_API.Models;
 using System.Text.Json;
+using System.Net.Http.Json;
 
 namespace Pr06_API.Services
 {
@@ -12,11 +13,18 @@ namespace Pr06_API.Services
             _httpClientFactory = httpClientFactory;
         }
 
-        public async Task<List<Character>> GetCharacaterByIdAsync(int id)
+        public async Task<Character> GetCharacaterByIdAsync(int id)
         {
             using var httpClient = _httpClientFactory.CreateClient("RickAndMortyJSON");
 
-            return await httpClient.GetFromJsonAsync<Character>($"/character/{id}");
+            var response = await httpClient.GetAsync($"character/{id}");
+
+            if (!response.IsSuccessStatusCode)
+            {
+                return null;
+            }
+
+            return await response.Content.ReadFromJsonAsync<Character>();
         }
     }
 }

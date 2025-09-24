@@ -4,6 +4,6 @@ namespace Pr06_API.Services
 {
     public interface IRickAndMortyHttpService
     {
-        Task<List<Character>> GetCharacaterByIdAsync(int id);
+        Task<Character> GetCharacaterByIdAsync(int id);
     }
 }

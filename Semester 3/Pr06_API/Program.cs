@@ -12,16 +12,8 @@ namespace Pr06_API
 
             builder.Services.AddHttpClient("RickAndMortyJSON", (httpClient) =>
             {
-                httpClient.BaseAddress = new Uri("https://rickandmortyapi.com/api");
+                httpClient.BaseAddress = new Uri("https://rickandmortyapi.com/api/");
             });
-
-            //builder.Services.AddSingleton((ServiceProvider) => new HttpClient
-            //(
-            //    new SocketsHttpHandler
-            //    {
-            //        PooledConnectionLifetime = TimeSpan.FromMinutes(5)
-            //    }
-            //));
 
             var app = builder.Build();
 
