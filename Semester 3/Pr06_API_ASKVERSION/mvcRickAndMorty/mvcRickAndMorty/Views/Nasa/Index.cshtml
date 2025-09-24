@@ -1,0 +1,50 @@
+﻿@{
+    var imageUrls = ViewBag.ImageUrls as List<string>;
+    var isRangeSelected = ViewBag.DateType == "range";
+    var selectedDate = ViewBag.SelectedDate;
+    var startDate = ViewBag.StartDate;
+    var endDate = ViewBag.EndDate;
+}
+
+<h1>NASA's Daily Images</h1>
+
+@if (imageUrls != null && imageUrls.Any())
+{
+    <div>
+        @foreach (var imageUrl in imageUrls)
+        {
+            <img src="@imageUrl" alt="NASA Daily Image" style="max-width:25%; height:auto; margin-bottom: 10px;" />
+        }
+    </div>
+}
+else
+{
+    <h1>Sorry, we couldn't fetch the image(s) at the moment.</h1>
+}
+
+<form method="get" action="/Nasa/Index">
+    <div>
+        <label for="singleDateRadio">Single Date</label>
+        <input type="radio" id="singleDateRadio" name="dateType" value="single" @(isRangeSelected ? "" : "checked") />
+
+        <label for="rangeDateRadio">Date Range</label>
+        <input type="radio" id="rangeDateRadio" name="dateType" value="range" @(isRangeSelected ? "checked" : "") />
+    </div>
+
+    <div>
+        @if (!isRangeSelected)
+        {
+            <input type="date" name="date" value="@selectedDate" placeholder="Pick a date" />
+        }
+    </div>
+
+    <div>
+        @if (isRangeSelected)
+        {
+            <input type="date" name="startDate" value="@startDate" placeholder="Start date" />
+            <input type="date" name="endDate" value="@endDate" placeholder="End date" />
+        }
+    </div>
+
+    <button type="submit">Fetch Image(s)</button>
+</form>

@@ -1,0 +1,14 @@
+﻿@model mvcRickAndMorty.Models.Character
+
+@{
+    ViewData["Title"] = "Character Details";
+}
+
+<div class="text-center">
+    <h1>@Model.Name</h1>
+    <img src="@Model.Image" alt="@Model.Name" class="img-fluid" />
+    <p><strong>Species:</strong> @Model.Species</p>
+    <p><strong>Status:</strong> @Model.Status</p>
+    <p><strong>Gender:</strong> @Model.Gender</p>
+    <a href="@Url.Action("Index", "Home")" class="btn btn-primary">Go Back</a>
+</div>

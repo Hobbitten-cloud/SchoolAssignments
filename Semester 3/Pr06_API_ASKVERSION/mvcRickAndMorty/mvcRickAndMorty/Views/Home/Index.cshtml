@@ -1,0 +1,29 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+
+    <form method="post" asp-action="SearchCharacter">
+        <div class="form-group">
+            <input type="number" name="characterId" placeholder="Type a character id here" class="form-control" />
+        </div>
+        <button type="submit" class="btn btn-primary">Search for Character</button>
+    </form>
+
+    <div class="mt-3">
+        <a href="@Url.Action("AllCharacters", "Home")" class="btn btn-secondary">View All Characters</a>
+    </div>
+
+    @if (!ViewData.ModelState.IsValid)
+    {
+        <div class="alert alert-danger mt-3">
+            @foreach (var error in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+            {
+                <p>@error.ErrorMessage</p>
+            }
+        </div>
+    }
+</div>
+

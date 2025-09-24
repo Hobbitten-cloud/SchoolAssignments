@@ -1,0 +1,71 @@
+﻿@model mvcRickAndMorty.Models.CharacterListResponse
+
+@{
+    ViewData["Title"] = "All Characters";
+    var currentPage = (int)ViewData["CurrentPage"];
+}
+
+<div class="text-center">
+    <h1>All Characters</h1>
+
+    <div class="row">
+        @foreach (var character in Model.Results)
+        {
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <img src="@character.Image" alt="@character.Name" class="card-img-top" />
+                    <div class="card-body">
+                        <h5 class="card-title">@character.Name</h5>
+                        <p><strong>Species:</strong> @character.Species</p>
+                        <p><strong>Status:</strong> @character.Status</p>
+                        <p><strong>Gender:</strong> @character.Gender</p>
+                        <a href="@Url.Action("CharacterDetails", "Home", new { id = character.Id })" class="btn btn-primary">View Details</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+
+    <nav aria-label="Page navigation">
+        <ul class="pagination justify-content-center">
+
+            <li class="page-item @(currentPage == 1 ? "disabled" : "")">
+                <a class="page-link" href="@Url.Action("AllCharacters", "Home", new { page = 1 })" aria-label="First">
+                    <span aria-hidden="true">First</span>
+                </a>
+            </li>
+
+            <li class="page-item @(currentPage == 1 ? "disabled" : "")">
+                <a class="page-link" href="@Url.Action("AllCharacters", "Home", new { page = currentPage - 1 })" aria-label="Previous">
+                    <span aria-hidden="true">Previous</span>
+                </a>
+            </li>
+
+            <li class="page-item active">
+               @*  <input class="page-link text-center border-0 bg-transparent p-0"
+                       type="number" value="@currentPage" min="1" max="@Model.Info.Pages"
+                       aria-label="Current page" onchange="navigateToPage(this.value)" onkeydown="handleKeyPress(event)" /> *@
+                <span class="page-link">@currentPage</span>
+            </li>
+
+
+   
+
+
+            <li class="page-item @(currentPage == Model.Info.Pages ? "disabled" : "")">
+                <a class="page-link" href="@Url.Action("AllCharacters", "Home", new { page = currentPage + 1 })" aria-label="Next">
+                    <span aria-hidden="true">Next</span>
+                </a>
+            </li>
+
+            <li class="page-item @(currentPage == Model.Info.Pages ? "disabled" : "")">
+                <a class="page-link" href="@Url.Action("AllCharacters", "Home", new { page = Model.Info.Pages })" aria-label="Last">
+                    <span aria-hidden="true">Last</span>
+                </a>
+            </li>
+
+        </ul>
+    </nav>
+
+    <a href="@Url.Action("Index", "Home")" class="btn btn-secondary">Go Back</a>
+</div>
