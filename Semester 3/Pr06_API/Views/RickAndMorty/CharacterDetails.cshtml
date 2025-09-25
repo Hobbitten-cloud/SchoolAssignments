@@ -1,0 +1,16 @@
+﻿@model Character
+
+<div>
+    <div class="mt-3">
+        <a href="@Url.Action("ViewAllCharacters", "RickAndMorty")" class="btn btn-secondary">View All Characters</a>
+    </div>
+
+    <div>
+        <h1>@Model.Name</h1>
+        <p>@Model.Gender</p>
+        <p>@Model.Type</p>
+        <p>@Model.Species</p>
+        <p>@Model.Status</p>
+        <img src="@Model.Image" alt="a picture of a character">
+    </div>
+</div>

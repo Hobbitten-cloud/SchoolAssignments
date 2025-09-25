@@ -1,10 +1,12 @@
 ﻿@model Character
 
 <div>
-    <h1>@Model.Name</h1>
-    <p>@Model.Gender</p>
-    <p>@Model.Type</p>
-    <p>@Model.Species</p>
-    <p>@Model.Status</p>
-    <img src="@Model.Image" alt="a picture of a character">
+    <h1>Welcome to the Rick and Morty character searcher</h1>
+    <form method="post" asp-controller="RickAndMorty" asp-action="Index" asp-route-id="@Model.Id">
+        <div class="form-group">
+            <input type="number" placeholder="Type a character id here" class="form-control" />
+        </div>
+        <br />
+        <button type="submit" class="btn btn-primary">Search for Character</button>
+    </form>
 </div>

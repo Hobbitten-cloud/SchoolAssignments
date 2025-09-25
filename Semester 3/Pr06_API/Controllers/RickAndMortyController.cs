@@ -17,10 +17,16 @@ namespace Pr06_API.Controllers
             return View();
         }
 
-        [HttpGet]
+        [HttpPost]
         public async Task<IActionResult> Index(int id)
         {
             var character = await _rickAndMorty.GetCharacaterByIdAsync(id);
+
+            if (character == null)
+            {
+                ModelState.AddModelError("", "Character not found.");
+                return View("Index");
+            }
 
             return View(character);
         }
