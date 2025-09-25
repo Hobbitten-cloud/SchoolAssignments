@@ -1,0 +1,16 @@
+﻿@model CharacterResponse
+<div>
+    @foreach (var character in Model.characters)
+    {
+        <div class="row d-inline-flex">
+            <h1>Name: @character.Name</h1>
+            <p>Gender: @character.Gender</p>
+            <p>Species: @character.Species</p>
+            <p>Status: @character.Status</p>
+            <p>Type: @character.Type</p>
+            <img src="@character.Image" alt="a picture of a character">
+        </div>
+    }
+</div>
+
+

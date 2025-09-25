@@ -24,5 +24,13 @@ namespace Pr06_API.Controllers
 
             return View(character);
         }
+
+        [HttpGet]
+        public async Task<IActionResult> ViewAllCharacters()
+        {
+            var AllCharacters = await _rickAndMorty.GetAllCharacters();
+
+            return View(AllCharacters);
+        }
     }
 }

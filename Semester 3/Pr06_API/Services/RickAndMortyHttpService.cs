@@ -13,6 +13,15 @@ namespace Pr06_API.Services
             _httpClientFactory = httpClientFactory;
         }
 
+        public async Task<CharacterResponse> GetAllCharacters()
+        {
+            using var httpClient = _httpClientFactory.CreateClient("RickAndMortyJSON");
+
+            var response = await httpClient.GetAsync($"character/");
+
+            return await response.Content.ReadFromJsonAsync<CharacterResponse>();
+        }
+
         public async Task<Character> GetCharacaterByIdAsync(int id)
         {
             using var httpClient = _httpClientFactory.CreateClient("RickAndMortyJSON");
