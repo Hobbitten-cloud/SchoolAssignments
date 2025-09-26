@@ -2,11 +2,14 @@
 
 <div>
     <h1>Welcome to the Rick and Morty character searcher</h1>
-    <form method="post" asp-controller="RickAndMorty" asp-action="Index" asp-route-id="@Model.Id">
+    <form method="post" asp-controller="RickAndMorty" asp-action="Index">
         <div class="form-group">
-            <input type="number" placeholder="Type a character id here" class="form-control" />
+            <input type="number" name="id" placeholder="Type a character id here" class="form-control" />
         </div>
         <br />
         <button type="submit" class="btn btn-primary">Search for Character</button>
     </form>
+    <div class="mt-3">
+        <a href="@Url.Action("ViewAllCharacters", "RickAndMorty")" class="btn btn-secondary">View All Characters</a>
+    </div>
 </div>
