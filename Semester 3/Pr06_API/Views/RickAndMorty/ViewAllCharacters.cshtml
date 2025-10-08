@@ -1,16 +1,21 @@
 ﻿@model CharacterResponse
-<div>
-    @foreach (var character in Model.characters)
-    {
-        <div class="row d-inline-flex">
-            <h1>Name: @character.Name</h1>
-            <p>Gender: @character.Gender</p>
-            <p>Species: @character.Species</p>
-            <p>Status: @character.Status</p>
-            <p>Type: @character.Type</p>
-            <img src="@character.Image" alt="a picture of a character">
-        </div>
-    }
+
+<div class="row text-center">
+	@foreach (var character in Model.characters)
+	{
+		<div class="col-md-4">
+			<div class="card mb-4">
+				<div class="card-body">
+					<img src="@character.Image" alt="a picture of a character">
+					<h1>@character.Name</h1>
+					<p>@character.Gender</p>
+					<p>@character.Species</p>
+					<p>@character.Status</p>
+					<p>@character.Type</p>
+				</div>
+			</div>
+		</div>
+	}
 </div>
 
 

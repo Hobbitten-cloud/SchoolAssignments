@@ -24,11 +24,11 @@ namespace Pr06_API.Controllers
 
             if (character == null)
             {
-                ModelState.AddModelError("", "Character not found.");
-                return View("Index");
+                ViewBag.Error = "Not found";
+                return View();
             }
 
-            return View(character);
+            return View("CharacterDetails", character);
         }
 
         [HttpGet]
