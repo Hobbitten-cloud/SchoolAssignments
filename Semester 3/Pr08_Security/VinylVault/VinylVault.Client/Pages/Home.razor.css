@@ -1,0 +1,17 @@
+﻿.vv-hero {
+    min-height: 60vh;
+    color: #fff;
+    background: radial-gradient(1200px 600px at 50% -20%, rgba(255,215,128,.25), transparent 60%), radial-gradient(800px 400px at 100% 0, rgba(0, 173, 181, .2), transparent 60%), linear-gradient(135deg, #1a1a1a, #101317 65%);
+    border-bottom: 1px solid rgba(255,255,255,.08);
+}
+
+.vv-logo {
+    width: 300px;
+    height: auto;
+    filter: drop-shadow(0 6px 16px rgba(0,0,0,.35));
+    transform: translateZ(0);
+}
+
+.card .fs-2 {
+    line-height: 1;
+}

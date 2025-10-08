@@ -1,0 +1,89 @@
+﻿@page "/addrecord"
+@inject HttpClient httpClient
+@inject NavigationManager navManager
+
+
+<PageTitle>Tilføj ny plade</PageTitle>
+
+<section class="add-record-section container py-5">
+    <h2 class="display-6 fw-bold mb-4 text-center">Tilføj ny vinylplade</h2>
+
+    <EditForm Model="@record" OnValidSubmit="HandleValidSubmit">
+        <DataAnnotationsValidator />
+        <ValidationSummary />
+
+        <div class="mb-3">
+            <label class="form-label">Kunstner</label>
+            <InputText class="form-control" @bind-Value="record.Artist" />
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Album</label>
+            <InputText class="form-control" @bind-Value="record.Album" />
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Udgivelsesår</label>
+            <InputNumber class="form-control" @bind-Value="record.Year" />
+        </div>
+
+        <button type="submit" class="btn vv-primary btn-lg mt-3 shadow">
+            <i class="bi bi-plus-circle me-2"></i> Tilføj plade
+        </button>
+
+        <a href="/" class="btn btn-outline-secondary btn-lg mt-3 shadow">
+            <i class="bi bi-plus-circle me-2"></i> Tilbage
+        </a>
+
+
+        @if (successMessage is not null)
+        {
+            <div class="alert alert-success mt-4">@successMessage</div>
+        }
+
+        @if (errorMessage is not null)
+        {
+            <div class="alert alert-danger mt-4">@errorMessage</div>
+        }
+    </EditForm>
+</section>
+
+@code {
+    private RecordCreateDto record = new();
+    private string? successMessage;
+    private string? errorMessage;
+
+    private async Task HandleValidSubmit()
+    {
+        try
+        {
+            var response = await httpClient.PostAsJsonAsync("https://localhost:7142/api/records", record);
+
+            if (response.IsSuccessStatusCode)
+            {
+                successMessage = "Pladen blev tilføjet!";
+                errorMessage = null;
+                record = new();
+
+                StateHasChanged();
+                await Task.Delay(1500);
+                navManager.NavigateTo("/records");
+            }
+            else if (response.StatusCode == System.Net.HttpStatusCode.Unauthorized)
+            {
+                errorMessage = "Du skal være logget ind for at tilføje plader.";
+                successMessage = null;
+            }
+            else
+            {
+                errorMessage = "Noget gik galt. Prøv igen.";
+                successMessage = null;
+            }
+        }
+        catch
+        {
+            errorMessage = "Kunne ikke forbinde til API’et.";
+            successMessage = null;
+        }
+    }
+}

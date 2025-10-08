@@ -1,0 +1,57 @@
+﻿@page "/"
+@inject HttpClient Http
+
+<PageTitle>Vinyl Vault</PageTitle>
+
+<section class="vv-hero text-center d-flex align-items-center">
+    <div class="container">
+        <img src="/vv_logo.png" alt="Vinyl Vault logo" class="vv-logo mb-3" />
+        <h1 class="display-5 fw-bold mb-2">Velkommen til Vinyl Vault</h1>
+        <p class="lead opacity-75 mb-4">
+            Bevar overblikket over dine favoritplader – enkelt og elegant.
+        </p>
+
+        <div class="d-flex flex-wrap gap-2 justify-content-center">
+            <NavLink class="btn vv-primary btn-lg shadow" href="records">
+                <i class="bi bi-vinyl me-2" aria-hidden="true"></i>
+                Se plader
+            </NavLink>
+            <NavLink class="btn btn-outline-light btn-lg shadow" href="addrecord">
+                <i class="bi bi-plus-circle me-2" aria-hidden="true"></i>
+                Tilføj plade
+            </NavLink>
+        </div>
+    </div>
+</section>
+
+<section class="container py-5">
+    <div class="row g-4">
+        <div class="col-md-4">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body">
+                    <i class="bi bi-collection-fill fs-2"></i>
+                    <h5 class="mt-3 mb-2">Kurateret samling</h5>
+                    <p class="text-muted mb-0">Se både artist, album og årstal.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body">
+                    <i class="bi bi-lock-fill fs-2"></i>
+                    <h5 class="mt-3 mb-2">Overblik med stil</h5>
+                    <p class="text-muted mb-0">Se dine albums med et enkelt klik og find det næste, du vil sætte på pladespilleren.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body">
+                    <i class="bi bi-lightning-charge-fill fs-2"></i>
+                    <h5 class="mt-3 mb-2">Del din passion</h5>
+                    <p class="text-muted mb-0">Vis din samling frem, og lad andre opdage nye kunstnere gennem dine plader.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

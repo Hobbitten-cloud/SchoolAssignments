@@ -1,0 +1,37 @@
+﻿.records-section {
+    background: linear-gradient(180deg, #f8e4c1 100%, #fff9f0 0%);
+    border-radius: 1rem;
+    padding: 2rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.record-card {
+    background: #fffaf3;
+    border: 1px solid rgba(44, 29, 17, 0.15);
+    border-radius: 10px;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+    .record-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 6px 18px rgba(44, 29, 17, 0.1);
+    }
+
+.vinyl-icon {
+    flex-shrink: 0;
+}
+
+.card-title {
+    color: #2c1d11;
+    font-weight: 600;
+}
+
+.card-text {
+    color: #5a4533;
+}
+
+.badge.bg-dark {
+    background-color: #2c1d11 !important;
+    color: #f8e4c1 !important;
+    font-weight: 500;
+}

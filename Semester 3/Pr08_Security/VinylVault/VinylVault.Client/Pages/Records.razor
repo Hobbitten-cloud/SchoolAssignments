@@ -1,0 +1,92 @@
+﻿@page "/records"
+@inject HttpClient Http
+
+<PageTitle>VinylVault – Records</PageTitle>
+
+<section class="records-section container py-5">
+    <h2 class="display-6 fw-bold mb-4 text-center">Vinylsamlingen</h2>
+
+    @if (isLoading)
+    {
+        <div class="text-center py-5 text-muted">
+            <div class="spinner-border text-secondary" role="status"></div>
+            <p class="mt-3"><em>Indlæser plader…</em></p>
+        </div>
+    }
+    else if (unauthorizedError)
+    {
+        <div class="alert alert-danger mt-5 text-center mx-auto" style="max-width:600px;">
+            <i class="bi bi-lock-fill me-2"></i>
+            <strong>Adgang nægtet:</strong> Du skal være logget ind for at se pladerne.
+        </div>
+    }
+    else if(genericError)
+    {
+        <div class="alert alert-danger mt-5 text-center mx-auto" style="max-width:600px;">
+            <i class="bi bi-lock-fill me-2"></i>
+            <strong>Fejl:</strong> Kunne ikke forbinde til API’et.
+        </div>
+    }
+    else if (records is null || records.Count == 0)
+    {
+        <div class="text-center py-5 text-muted">
+            <i class="bi bi-vinyl fs-1"></i>
+            <p class="mt-3">Der er endnu ingen plader i samlingen.</p>
+        </div>
+    }
+    else
+    {
+        <div class="row g-4">
+            @foreach (var r in records)
+            {
+                <div class="col-md-4 col-sm-6">
+                    <div class="card record-card shadow-sm d-flex flex-row align-items-center p-3">
+                        <div class="vinyl-icon me-3" style="@ColorHelper.GetVinylStyle()"></div>
+                        <div>
+                            <h5 class="card-title mb-1">@r.Album</h5>
+                            <p class="card-text text-secondary mb-2">@r.Artist</p>
+                            <span class="badge bg-dark">@r.Year</span>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+</section>
+
+@code {
+    private List<RecordReadDto>? records;
+    private bool isLoading = true;
+    private bool unauthorizedError = false;
+    private bool genericError = false;
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            var response = await Http.GetAsync("https://localhost:7142/api/records");
+
+            if (response.StatusCode == System.Net.HttpStatusCode.Unauthorized)
+            {
+                unauthorizedError = true;
+                return;
+            }
+
+            if (!response.IsSuccessStatusCode)
+            {
+                genericError = true;
+                return;
+            }
+
+            records = await response.Content.ReadFromJsonAsync<List<RecordReadDto>>();
+        }
+        catch (HttpRequestException ex)
+        {
+            genericError = true;
+        }
+        finally
+        {
+            isLoading = false;
+        }
+    }
+}
