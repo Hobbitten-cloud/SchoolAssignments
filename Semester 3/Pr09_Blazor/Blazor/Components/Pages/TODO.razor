@@ -1,0 +1,19 @@
+﻿@page "/todo"
+@rendermode InteractiveServer
+
+<h3>TODO</h3>
+<ul>
+    @foreach (var todo in todos)
+    {
+        <li>
+            @todo.Task - @(todo.IsCompleted ? "Completed" : "Pending")
+        </li>
+    }
+</ul>
+
+
+@code {
+
+    public List<TodoList> todos = TodoListRepo.GetAllTodos();
+
+}

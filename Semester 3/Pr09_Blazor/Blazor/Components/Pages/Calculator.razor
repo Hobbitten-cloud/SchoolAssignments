@@ -1,0 +1,43 @@
+﻿@page "/calculator"
+@rendermode InteractiveServer
+
+<h3>Calculator</h3>
+
+<div>
+    <label>Værdi 1</label>
+    <input type="number" @bind="Value1" />
+</div>
+<div>
+    <label>Værdi 2</label>
+    <input type="number" @bind="Value2" />
+</div>
+<div>
+    <button @onclick="Add">+</button>
+    <button @onclick="Subtract">-</button>
+    <button @onclick="Divide">/</button>
+    <button @onclick="Multiply">*</button>
+</div>
+<p>Svaret: @Result</p>
+
+@code {
+    public double Value1 { get; set; }
+    public double Value2 { get; set; }
+    public double Result { get; set; }
+
+    public void Add()
+    {
+        Result = Value1 + Value2;
+    }
+    public void Divide()
+    {
+        Result = Value1 / Value2;
+    }
+    public void Multiply()
+    {
+        Result = Value1 * Value2;
+    }
+    public void Subtract()
+    {
+        Result = Value1 - Value2;
+    }
+}

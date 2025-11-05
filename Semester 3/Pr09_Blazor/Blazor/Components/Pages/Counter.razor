@@ -1,0 +1,18 @@
+﻿@page "/counter"
+@rendermode InteractiveServer
+
+<h3>Counter</h3>
+<p>Count: @Count</p>
+<button @onclick="Increment">CLICK ME!</button>
+
+@code {
+    [Parameter]
+    public int IncrementBy { get; set; }
+
+    public int Count { get; set; } = 0;
+
+    public void Increment()
+    {
+        Count += IncrementBy;
+    }
+}

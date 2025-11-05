@@ -1,0 +1,29 @@
+﻿@page "/temp"
+@rendermode InteractiveServer
+
+<h3>TemperatureConverter</h3>
+
+
+<div>
+    <label>Celsius</label>
+    <input type="number" @bind="Celsius" />
+    <button @onclick="ConvertTemp">Convert</button>
+</div>
+<div>
+    <label>Fahrenheit: @Fahrenheit</label>
+</div>
+
+
+@code {
+    // Et inputfelt til temperaturen målt i grader Celsius.
+    // Et tekstfelt der viser værdien i grader Fahrenheit.
+    // Brug formlen: °F = °C* 9/5 + 32
+
+    public double Celsius { get; set; }
+    public double Fahrenheit { get; set; }
+
+    public void ConvertTemp()
+    {
+        Fahrenheit = Celsius * 9 / 5 + 32;
+    }
+}

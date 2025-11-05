@@ -1,0 +1,22 @@
+﻿@page "/mathtable/{Number}"
+@rendermode InteractiveServer
+
+<h3>MathTable</h3>
+<table class="table">
+    <tr>
+        <th>Multiplicitet</th>
+        <th>Results</th>
+    </tr>
+    @for (int i = 1; i <= 10; i++)
+    {
+        <tr>
+            <td>@i x @Convert.ToInt32(Number)</td>
+            <td>@(i * @Convert.ToInt32(Number))</td>
+        </tr>
+    }
+</table>
+
+@code {
+    [Parameter]
+    public string Number { get; set; }
+}
