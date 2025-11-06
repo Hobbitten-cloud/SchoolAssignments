@@ -10,12 +10,11 @@
     @foreach (var server in serverRepositories)
     {
         <li>
-            @server.Name is located in @server.City and is @(server.IsOnline ? "online" : "offline")
+            @server. is located in @server.City and is @(server.IsOnline ? "online" : "offline")
         </li>
     }
 </ul>
 
 @code {
-    List<ServerRepository> serverRepositories = new List<ServerRepository>();
 
 }
