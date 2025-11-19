@@ -1,11 +1,25 @@
-﻿<h3>TextField</h3>
-<InputTextArea @onchange="@(() => TextChanged(Description))" @bind-Value="Description"></InputTextArea>
-<button></button>
+﻿@rendermode InteractiveServer
+
+<h3>TextField</h3>
+<textarea @bind="Description" @bind:event="oninput"></textarea>
 <hr />
 
 @code {
+    private string _description;
+
     [Parameter]
-    public string Description { get; set; }
+    public string Description
+    {
+        get
+        {
+            return _description;
+        }
+        set
+        {
+            _description = value;
+            OnTextAdded.InvokeAsync(value);
+        }
+    }
 
     [Parameter]
     public EventCallback<string> OnTextAdded { get; set; }

@@ -1,9 +1,10 @@
 ﻿@page "/"
+@rendermode InteractiveServer
 
 <PageTitle>Home</PageTitle>
 
 <TextField OnTextAdded="@OnCharactersAddedHandler"></TextField>
-<label>Count: @Description.Length</label>
+<p>Count: @Description.Length</p>
 
 @code {
     public string Description { get; set; } = string.Empty;
