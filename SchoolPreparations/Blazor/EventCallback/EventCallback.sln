@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35222.181
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventCallback", "EventCallback.csproj", "{DBF2D2BD-926E-41BF-9EFF-DA0F9FBE28FB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DBF2D2BD-926E-41BF-9EFF-DA0F9FBE28FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DBF2D2BD-926E-41BF-9EFF-DA0F9FBE28FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DBF2D2BD-926E-41BF-9EFF-DA0F9FBE28FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DBF2D2BD-926E-41BF-9EFF-DA0F9FBE28FB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {94AFB43E-68BF-482D-B42E-D29D7BE71254}
+	EndGlobalSection
+EndGlobal
