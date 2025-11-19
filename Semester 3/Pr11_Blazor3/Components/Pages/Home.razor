@@ -1,0 +1,15 @@
+﻿@page "/"
+
+<PageTitle>Home</PageTitle>
+
+<TextField OnTextAdded="@OnCharactersAddedHandler"></TextField>
+<label>Count: @Description.Length</label>
+
+@code {
+    public string Description { get; set; } = string.Empty;
+
+    public void OnCharactersAddedHandler(string e)
+    {
+        Description = e;
+    }
+}

@@ -1,0 +1,17 @@
+﻿<h3>TextField</h3>
+<InputTextArea @onchange="@(() => TextChanged(Description))" @bind-Value="Description"></InputTextArea>
+<button></button>
+<hr />
+
+@code {
+    [Parameter]
+    public string Description { get; set; }
+
+    [Parameter]
+    public EventCallback<string> OnTextAdded { get; set; }
+
+    public async Task TextChanged(string e)
+    {
+        await OnTextAdded.InvokeAsync(e);
+    }
+}
