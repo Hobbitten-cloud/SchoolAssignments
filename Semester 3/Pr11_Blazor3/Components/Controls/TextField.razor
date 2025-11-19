@@ -1,6 +1,6 @@
 ﻿@rendermode InteractiveServer
 
-<h3>TextField</h3>
+<h3>Description Counter</h3>
 <textarea @bind="Description" @bind:event="oninput"></textarea>
 <hr />
 
@@ -24,8 +24,8 @@
     [Parameter]
     public EventCallback<string> OnTextAdded { get; set; }
 
-    public async Task TextChanged(string e)
-    {
-        await OnTextAdded.InvokeAsync(e);
-    }
+    // public async Task TextChanged(string e)
+    // {
+    //     await OnTextAdded.InvokeAsync(e);
+    // }
 }

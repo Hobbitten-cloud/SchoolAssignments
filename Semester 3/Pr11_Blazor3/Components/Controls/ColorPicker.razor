@@ -1,6 +1,12 @@
 ﻿<h3>ColorPicker</h3>
 
 @code {
+    [Parameter]
+    public string Color { get; set; } = "#000000";
+
+    [Parameter]
+    public EventCallback<string> OnColorPicked { get; set; }
+
 
 
 }
