@@ -7,7 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Components\Shared\" />
     <Folder Include="Models\" />
   </ItemGroup>
 

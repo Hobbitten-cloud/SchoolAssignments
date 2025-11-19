@@ -1,0 +1,16 @@
+﻿@page "/description"
+@rendermode InteractiveServer
+
+<h3>DescriptionCountPage</h3>
+<TextField OnTextAdded="@OnCharactersAddedHandler"></TextField>
+<p>Count: @Description.Length</p>
+
+
+@code {
+    public string Description { get; set; } = string.Empty;
+
+    public void OnCharactersAddedHandler(string e)
+    {
+        Description = e;
+    }
+}
