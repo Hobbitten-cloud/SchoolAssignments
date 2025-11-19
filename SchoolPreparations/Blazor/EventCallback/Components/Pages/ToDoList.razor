@@ -1,0 +1,48 @@
+﻿@page "/todos"
+ 
+<div class="row">
+    <div class="col"><h3>To Do List</h3></div>
+    <div class="col"><h5 class="float-right">Total Minutes: @TotalCount</h5></div>
+</div>
+ 
+<br />
+<table class="table">
+    <tr>
+        <th>Title</th>
+        <th>Minutes</th>
+        <th></th>
+    </tr>
+    @foreach (var todo in ToDos)
+    {
+        <ToDoItem Item="todo" OnMinutesAdded="OnMinutesAddedHandler" />
+    }
+</table>
+ 
+@code {
+ 
+    public List<ToDo> ToDos { get; set; }
+    public int TotalCount { get; set; }
+ 
+    protected override void OnInitialized()
+    {
+        ToDos = new List<ToDo>()
+        {
+                new ToDo() { Title = "Analysis", Minutes = 40 },
+                new ToDo() { Title = "Design", Minutes = 30 },
+                new ToDo() { Title = "Implementation", Minutes = 75 },
+                new ToDo() { Title = "Testing", Minutes = 40 }
+        };
+ 
+        UpdateTotalMinutes();
+    }
+ 
+    public void UpdateTotalMinutes()
+    {
+        TotalCount = ToDos.Sum(x => x.Minutes);
+    }
+ 
+    public void OnMinutesAddedHandler(MouseEventArgs e)
+    {
+        UpdateTotalMinutes();
+    }
+}
