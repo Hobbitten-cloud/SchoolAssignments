@@ -13,10 +13,10 @@ namespace Pr12_CleanArchitecture.Domain
         [Required]
         public string Name { get; set; }
         [Required]
-        public DateTime Date { get; set; }
-        [Required]
-        public int Capacity { get; set; }
+        public string Capacity { get; set; }
         [Required]
         public string Description { get; set; }
+        [Required]
+        public DateTime Date { get; set; }
     }
 }

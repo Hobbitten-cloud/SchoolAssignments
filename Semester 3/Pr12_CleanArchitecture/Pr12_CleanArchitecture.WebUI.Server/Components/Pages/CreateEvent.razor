@@ -1,0 +1,65 @@
+﻿@inject IEventRepo EventRepo
+@page "/create-event"
+
+<h3>Opret et event</h3>
+
+<EditForm Model="NewEvent" FormName="CreateForm" OnValidSubmit="CreateNewEvent">
+    <DataAnnotationsValidator></DataAnnotationsValidator>
+    <ValidationSummary></ValidationSummary>
+
+    <div class="card-body">
+        <div>
+            <div class="row mb-3">
+                <div class="col-2">
+                    <label for="title" class="form-label">Navn</label>
+                </div>
+                <div class="col-10">
+                    <InputText class="card-title" @bind-Value="NewEvent.Name"></InputText>
+                </div>
+                <div class="col">
+                    <ValidationMessage For="@(() => NewEvent.Name)"></ValidationMessage>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-2">
+                    <label for="description" class="form-label">Beskrivelse</label>
+                </div>
+                <div class="col-10">
+                    <InputTextArea @bind-Value="NewEvent.Description"></InputTextArea>
+                </div>
+                <div class="col">
+                    <ValidationMessage For="@(() => NewEvent.Description)"></ValidationMessage>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-2">
+                    <label for="capacity" class="form-label">Kapicitet</label>
+                </div>
+                <div class="col-10">
+                    <InputTextArea @bind-Value="NewEvent.Capacity"></InputTextArea>
+                </div>
+                <div class="col">
+                    <ValidationMessage For="@(() => NewEvent.Capacity)"></ValidationMessage>
+                </div>
+            </div>
+
+            <button class="btn btn-primary" style="float: right;" type="submit">Opret</button>
+        </div>
+    </div>
+</EditForm>
+
+@code {
+    [SupplyParameterFromForm(FormName = "CreateForm")]
+    public Event NewEvent { get; set; } = new Event();
+
+    [Inject]
+    private IEventRepo eventRepo { get; set; }
+
+    private async Task CreateNewEvent()
+    {
+        NewEvent.Date = DateTime.Now;
+        await eventRepo.CreateEvent(NewEvent);
+    }
+}

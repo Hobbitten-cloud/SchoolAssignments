@@ -1,6 +1,6 @@
-using Pr12_CleanArchitecture.WebUI.Server.Components;
 using Pr12_CleanArchitecture.Application;
 using Pr12_CleanArchitecture.Infrastructure;
+using Pr12_CleanArchitecture.WebUI.Server.Components;
 
 namespace Pr12_CleanArchitecture.WebUI.Server
 {
