@@ -1,0 +1,35 @@
+﻿@page "/mudtable"
+
+<h3>MudTable</h3>
+
+<MudSimpleTable Style="overflow-x: auto;">
+    <thead>
+        <tr>
+            @foreach (var h in headings)
+            {
+                <th>@h</th>
+            }
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var row in rows)
+        {
+            <tr>
+                @foreach (var x in row.Split())
+                {
+                    <td>@x</td>
+                }
+            </tr>
+        }
+    </tbody>
+</MudSimpleTable>
+
+@code {
+    string[] headings = { "Id", "Navn", "Kategori", "Pris", "På Lager?" };
+    string[] rows = {
+        @"1 Laptop Elektronik 7999 Ja",
+        @"2 Headphones Elektronik 999 Nej",
+        @"3 Rygsæk Udstyr 399 Ja",
+        @"4 Kaffekrus Tilbehør 129 Nej",
+    };
+}
