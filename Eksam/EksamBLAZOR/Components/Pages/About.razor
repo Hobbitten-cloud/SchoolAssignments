@@ -1,0 +1,40 @@
+﻿@page "/About/{Id:int}"
+@rendermode InteractiveServer
+
+<h3>About</h3>
+
+
+<button @onclick="ChangeValues">KLIK MIG</button>
+
+<EditForm Model="testStudent">
+    @if (user)
+    {
+        <InputText @bind-Value="testStudent.Name">Standard Value</InputText>
+        <InputNumber @bind-Value="testStudent.Age">1111</InputNumber>
+    }
+    else
+    {
+        <p>Hejsa</p>
+    }
+</EditForm>
+
+@code {
+    [Parameter]
+    public int Id { get; set; }
+
+    public TestStudent testStudent { get; set; } = new TestStudent();
+
+    public bool user { get; set; } = true;
+
+    public void ChangeValues()
+    {
+        testStudent.Name = "Birk";
+        testStudent.Age = 10;
+    }
+
+    public class TestStudent
+    {
+        public string Name { get; set; }
+        public int Age { get; set; }
+    }
+}

@@ -1,0 +1,15 @@
+﻿@model List<studiegruppemedlemmer>
+
+@if (Model != null)
+{
+    foreach (var medlem in Model)
+    {
+        <p>@medlem.Name</p>
+        <hr />
+        <p>@medlem.Age</p>
+    }
+}
+else
+{
+    <p>Ingen medlemmer findes lige nu...</p>
+}
